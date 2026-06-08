@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -20,316 +20,251 @@ import { useProposalStore } from "../../store/proposalStore";
 
 import ExportButton from "../../components/ExportButton";
 
+/* ─────────────────────────────────────────────────────────────
+   HELPER — convert a File object to a base64 data URL
+   This is used instead of URL.createObjectURL() so the image
+   survives serialization and is accessible inside Puppeteer.
+───────────────────────────────────────────────────────────── */
+async function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HELPER — convert a static imported PNG (module URL / blob URL
+   produced at build time by Vite) to a base64 data URL so it
+   can be serialized into Zustand and sent to Puppeteer.
+   We fetch the asset URL and read it as a blob → base64.
+───────────────────────────────────────────────────────────── */
+async function assetUrlToBase64(assetUrl) {
+  try {
+    const res = await fetch(assetUrl);
+    const blob = await res.blob();
+    return await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch {
+    // If fetch fails (e.g. already a data URL) return as-is
+    return assetUrl;
+  }
+}
 
 export default function Page13() {
 
   const navigate = useNavigate();
 
-  const { proposal } =
+  // ── Zustand ───────────────────────────────────────────────
+  const { proposal, technicalPages, updateTechnicalPage } =
     useProposalStore();
 
-  const systemType =
-    proposal.systemType || "Advanced";
+  const systemType = proposal.systemType || "Advanced";
 
   /* =====================================================
-     DATA
+     FALLBACK DATA (used only if Zustand page13 is empty)
   ===================================================== */
-
   const fallbackData = {
-
-    title:
-      "CONNECTIONS AND TESTS",
-
+    title: "CONNECTIONS AND TESTS",
     connections: [
-
       {
-        name:
-          "Connection A",
-
-        image:
-          connectionA,
-
+        name: "Connection A",
+        // image will be replaced with base64 in useEffect below
+        image: connectionA,
         tests: [
-
           "Measurement of No-load Loss (Watt)",
-
           "Measurement of No-load Current",
-
           "Induced Overvoltage Withstand Test",
         ],
       },
-
       {
-        name:
-          "Connection B",
-
-        image:
-          connectionB,
-
+        name: "Connection B",
+        image: connectionB,
         tests: [
-
           "Measurement of Impedance Voltage",
-
           "Measurement of Load Loss (Watt)",
-
           "Temperature Rise Test",
-
           "Calculation of Efficiency and Regulation",
         ],
       },
-
       {
-        name:
-          "Connection C",
-
-        image:
-          connectionC,
-
+        name: "Connection C",
+        image: connectionC,
         tests: [
-
           "Measurement Of Winding Resistances",
-
           "Measurement Of Voltage Ratio and Check of Phase Displacement",
-
           "Measurement Of Insulation Resistance",
-
           "Measurement of Magnetizing Current",
-
           "Magnetic Balance Test",
-
           "Verification Of Vector Group",
-
           "LV Short Circuit Test",
-
           "Polarity Test",
-
           "Applied Voltage Withstand Test (HV Test)",
         ],
       },
     ],
-
     footerNote:
       "++ OLTC Test, Core-Tank Insulation Test, Pressure Tightness Test, Measurement of zero sequence reactance (Z₀ test)",
   };
 
-  const proposalData =
-    technicalPagesData?.[
-      systemType
-    ]?.page13;
+  /* =====================================================
+     DERIVE INITIAL DATA
+     Priority: live Zustand technicalPages.page13
+               → technicalPagesData static fallback
+               → hardcoded fallbackData
+  ===================================================== */
+  const zustandPage13 = technicalPages?.page13;
+  const staticPage13  = technicalPagesData?.[systemType]?.page13;
 
-  const initialData =
-    proposalData || fallbackData;
+  // The "best" source for initial data — prefer Zustand live state
+  const sourceData = zustandPage13 || staticPage13 || fallbackData;
 
   /* =====================================================
-     FORCE IMAGES
+     LOCAL STATE
+     We keep a local copy for the UI so that each keystroke
+     doesn't cause a full store re-render. We flush to Zustand
+     on every meaningful change (see flushToStore below).
   ===================================================== */
+  const [pageData, setPageData] = useState(() => {
+    // Ensure connections have the correct static image assets as
+    // fallbacks when no base64 has been stored yet.
+    const connections = (sourceData.connections || []).map(
+      (conn, index) => {
+        // If the stored image is already a data URL keep it.
+        // Otherwise substitute the correct static asset.
+        const isDataUrl =
+          typeof conn.image === "string" &&
+          conn.image.startsWith("data:");
 
-  const finalConnections =
-    initialData.connections.map(
-      (
-        connection,
-        index
-      ) => {
+        if (isDataUrl) return conn;
 
-        let image =
-          connectionA;
-
-        if (index === 1) {
-          image = connectionB;
-        }
-
-        if (index === 2) {
-          image = connectionC;
-        }
-
-        return {
-
-          ...connection,
-
-          image,
-        };
+        const defaultImages = [connectionA, connectionB, connectionC];
+        return { ...conn, image: defaultImages[index] ?? connectionA };
       }
     );
 
-  const [pageData, setPageData] =
-    useState({
+    return { ...sourceData, connections };
+  });
 
-      ...initialData,
+  /* =====================================================
+     BOOTSTRAP — convert static asset URLs → base64 once
+     so that Puppeteer can access them.
+     Only runs when the stored image is NOT already a data URL.
+  ===================================================== */
+  useEffect(() => {
+    let cancelled = false;
 
-      connections:
-        finalConnections,
-    });
+    async function convertDefaultImages() {
+      const updated = await Promise.all(
+        pageData.connections.map(async (conn) => {
+          const isDataUrl =
+            typeof conn.image === "string" &&
+            conn.image.startsWith("data:");
+
+          if (isDataUrl) return conn;
+
+          const base64 = await assetUrlToBase64(conn.image);
+          return { ...conn, image: base64 };
+        })
+      );
+
+      if (!cancelled) {
+        const newData = { ...pageData, connections: updated };
+        setPageData(newData);
+        updateTechnicalPage("page13", newData);
+      }
+    }
+
+    convertDefaultImages();
+
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // intentionally run once on mount
+
+  /* =====================================================
+     FLUSH TO ZUSTAND
+     Called after every mutation so serialize() captures the
+     latest state when ExportButton is clicked.
+  ===================================================== */
+  function flushToStore(newData) {
+    setPageData(newData);
+    updateTechnicalPage("page13", newData);
+  }
 
   /* =====================================================
      UPDATE FUNCTIONS
   ===================================================== */
-
-  const updateTitle = (
-    value
-  ) => {
-
-    setPageData({
-
-      ...pageData,
-
-      title: value,
-    });
+  const updateTitle = (value) => {
+    flushToStore({ ...pageData, title: value });
   };
 
-  const updateConnection = (
-    index,
-    field,
-    value
-  ) => {
-
-    const updated =
-      [...pageData.connections];
-
-    updated[index][field] =
-      value;
-
-    setPageData({
-
-      ...pageData,
-
-      connections:
-        updated,
-    });
+  const updateConnection = (index, field, value) => {
+    const updated = pageData.connections.map((conn, i) =>
+      i === index ? { ...conn, [field]: value } : conn
+    );
+    flushToStore({ ...pageData, connections: updated });
   };
 
-  const updateTest = (
-    connectionIndex,
-    testIndex,
-    value
-  ) => {
-
-    const updated =
-      [...pageData.connections];
-
-    updated[
-      connectionIndex
-    ].tests[
-      testIndex
-    ] = value;
-
-    setPageData({
-
-      ...pageData,
-
-      connections:
-        updated,
+  const updateTest = (connectionIndex, testIndex, value) => {
+    const updated = pageData.connections.map((conn, i) => {
+      if (i !== connectionIndex) return conn;
+      const tests = conn.tests.map((t, j) =>
+        j === testIndex ? value : t
+      );
+      return { ...conn, tests };
     });
+    flushToStore({ ...pageData, connections: updated });
   };
 
-  const updateImage = (
-    index,
-    file
-  ) => {
-
+  // FIX: convert to base64 instead of createObjectURL
+  const updateImage = async (index, file) => {
     if (!file) return;
-
-    const updated =
-      [...pageData.connections];
-
-    updated[index].image =
-      URL.createObjectURL(file);
-
-    setPageData({
-
-      ...pageData,
-
-      connections:
-        updated,
-    });
+    const base64 = await fileToBase64(file);
+    const updated = pageData.connections.map((conn, i) =>
+      i === index ? { ...conn, image: base64 } : conn
+    );
+    flushToStore({ ...pageData, connections: updated });
   };
 
-  const addTest = (
-    connectionIndex
-  ) => {
-
-    const updated =
-      [...pageData.connections];
-
-    updated[
-      connectionIndex
-    ].tests.push(
-      "New Test"
-    );
-
-    setPageData({
-
-      ...pageData,
-
-      connections:
-        updated,
+  const addTest = (connectionIndex) => {
+    const updated = pageData.connections.map((conn, i) => {
+      if (i !== connectionIndex) return conn;
+      return { ...conn, tests: [...conn.tests, "New Test"] };
     });
+    flushToStore({ ...pageData, connections: updated });
   };
 
-  const removeTest = (
-    connectionIndex,
-    testIndex
-  ) => {
-
-    const updated =
-      [...pageData.connections];
-
-    updated[
-      connectionIndex
-    ].tests.splice(
-      testIndex,
-      1
-    );
-
-    setPageData({
-
-      ...pageData,
-
-      connections:
-        updated,
+  const removeTest = (connectionIndex, testIndex) => {
+    const updated = pageData.connections.map((conn, i) => {
+      if (i !== connectionIndex) return conn;
+      const tests = conn.tests.filter((_, j) => j !== testIndex);
+      return { ...conn, tests };
     });
+    flushToStore({ ...pageData, connections: updated });
   };
 
   const addConnection = () => {
-
-    setPageData({
-
+    flushToStore({
       ...pageData,
-
       connections: [
-
         ...pageData.connections,
-
         {
-          name:
-            "New Connection",
-
-          image:
-            connectionA,
-
-          tests: [
-            "New Test",
-          ],
+          name: "New Connection",
+          image: connectionA,
+          tests: ["New Test"],
         },
       ],
     });
   };
 
-  const removeConnection = (
-    index
-  ) => {
-
-    const updated =
-      [...pageData.connections];
-
-    updated.splice(index, 1);
-
-    setPageData({
-
-      ...pageData,
-
-      connections:
-        updated,
-    });
+  const removeConnection = (index) => {
+    const updated = pageData.connections.filter((_, i) => i !== index);
+    flushToStore({ ...pageData, connections: updated });
   };
 
   return (
@@ -535,6 +470,7 @@ export default function Page13() {
                       <input
                         type="file"
                         hidden
+                        accept="image/*"
                         onChange={(e) =>
                           updateImage(
                             index,
@@ -628,6 +564,7 @@ export default function Page13() {
                 <input
                   type="file"
                   hidden
+                  accept="image/*"
                   onChange={(e) =>
                     updateImage(
                       2,
@@ -846,10 +783,8 @@ export default function Page13() {
               pageData.footerNote
             }
             onChange={(e) =>
-              setPageData({
-
+              flushToStore({
                 ...pageData,
-
                 footerNote:
                   e.target.value,
               })
@@ -960,9 +895,9 @@ export default function Page13() {
             ← Previous Page
           </button>
 
-            <ExportButton
-    type="technical"
-  />
+          <ExportButton
+            type="technical"
+          />
 
           <button
             onClick={() =>

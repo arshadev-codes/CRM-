@@ -11,21 +11,16 @@
  *    ├── /commercial/page14 … (future)
  *    └── /terms (future)
  *
- * 2. /print  →  PrintLayout (bare white canvas, no chrome)
- *    ├── /print/technical        ← TechnicalPreview
- *    ├── /print/commercial       ← CommercialPreview  (future)
- *    └── /print/full             ← FullProposalPreview (future)
- *
- * PrintLayout is intentionally a separate root so Puppeteer
- * navigates to /print/technical and gets a clean DOM with zero
- * navigation chrome or Tailwind utility classes that affect layout.
+ * 2. /print  →  Flat previews (Each template internally implements PrintLayout)
+ *    ├── /print/technical         ← TechnicalPreview
+ *    ├── /print/commercial        ← CommercialPreview  (future)
+ *    └── /print/full              ← FullProposalPreview (future)
  */
 
 import { createBrowserRouter } from "react-router-dom";
 
 // Layouts
 import MainLayout from "../layouts/MainLayout";
-import PrintLayout from "../layouts/PrintLayout";
 
 // Editable pages — RFQ section
 import RFQPage from "../pages/RFQ/RFQPage";
@@ -79,19 +74,19 @@ export const router = createBrowserRouter([
   },
 
   // ── PRINT / PUPPETEER ROUTES ──────────────────────────────────
-  // These render under PrintLayout which is a bare <div> with no
-  // navigation, no sidebar, no edit controls — just white pages.
+  // Flattened directly to avoid React Router <Outlet /> rendering issues.
+  // Previews internally manage their bare canvas using <PrintLayout>.
   {
-    path: "/print",
-    element: <PrintLayout />,
-    children: [
-      {
-        path: "technical",
-        element: <TechnicalPreview />,
-      },
-      // Future:
-      // { path: "commercial",  element: <CommercialPreview /> },
-      // { path: "full",        element: <FullProposalPreview /> },
-    ],
+    path: "/print/technical",
+    element: <TechnicalPreview />,
   },
+  // Future Previews:
+  // {
+  //   path: "/print/commercial",
+  //   element: <CommercialPreview />,
+  // },
+  // {
+  //   path: "/print/full",
+  //   element: <FullProposalPreview />,
+  // },
 ]);

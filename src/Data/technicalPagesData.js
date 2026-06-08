@@ -1,4 +1,7 @@
 import Page4 from "../assets/Placeholder.png";
+import img9 from "../assets/9.png";
+import img10 from "../assets/10.png";
+
 
 const technicalPagesData = {
 
@@ -275,17 +278,13 @@ When combined with PLC-based interlocking, it prevents energisation unless the i
             "dual-image",
 
           images: [
-
-            {
-              src:
-                 "/src/assets/9.png",
-            },
-
-            {
-              src:
-                "/src/assets/10.png",
-            },
-          ],
+  {
+    src: img9
+  },
+  {
+    src: img10
+  }
+],
         },
 
         {
@@ -796,17 +795,13 @@ When combined with PLC-based interlocking, it prevents energisation unless the i
             "dual-image",
 
           images: [
-
-            {
-              src:
-                 "/src/assets/9.png",
-            },
-
-            {
-              src:
-                "/src/assets/10.png",
-            },
-          ],
+  {
+    src: img9,
+  },
+  {
+    src: img10,
+  },
+],
         },
 
         {
@@ -1309,18 +1304,14 @@ When combined with PLC-based interlocking, it prevents energisation unless the i
           layout:
             "dual-image",
 
-          images: [
-
-            {
-              src:
-                 "/src/assets/9.png",
-            },
-
-            {
-              src:
-                "/src/assets/10.png",
-            },
-          ],
+         images: [
+  {
+    src: img9,
+  },
+  {
+    src: img10,
+  },
+],
         },
 
         {
@@ -1824,17 +1815,13 @@ When combined with PLC-based interlocking, it prevents energisation unless the i
             "dual-image",
 
           images: [
-
-            {
-              src:
-                 "/src/assets/9.png",
-            },
-
-            {
-              src:
-                "/src/assets/10.png",
-            },
-          ],
+  {
+    src: img9,
+  },
+  {
+    src: img10,
+  },
+],
         },
 
         {

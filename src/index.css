@@ -1,6 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 body {
   font-family: 'Inter', sans-serif;
+}
+
+/* ── FORCE CHROME TO RENDER COLOR EVERYWHERE ── */
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* ── SYSTEM PRINT LAYOUT DESIGN ARCHITECTURE ── */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0 !important;
+  }
+
+  html, body {
+    width: 210mm;
+    background-color: #ffffff !important;
+  }
+}
+
+/* ── RE-DESIGNED MULTI-PAGE CANVAS CONTAINER ── */
+.pdf-page-sheet {
+  width: 210mm;
+  height: 297mm;
+  min-height: 297mm;
+  padding: 20mm 18mm 16mm 18mm;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #ffffff !important;
+
+  /* Hard page-break properties prevent content from splitting awkwardly across sheets */
+  page-break-after: always !important;
+  break-after: page !important;
+}
+
+/* Fix structural text compression rules inside Headless Chrome */
+.pdf-page-sheet * {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── EXECUTIVE TABLE OVERRIDES FOR TAILWIND V4 ── */
+.pdf-corporate-table {
+  width: 100%;
+  border-collapse: collapse !important;
+  border: 1.5px solid #1e293b !important;
+  font-size: 13px !important;
+}
+
+.pdf-corporate-table td {
+  border: 1px solid #475569 !important;
+  padding: 8px 12px !important;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+
+/*
+ * ✅ FIX 2: Replaced the broken Tailwind v4 compound selector.
+ *
+ * OLD (broken): .pdf-corporate-table td.bg-slate-100
+ * WHY IT FAILED: In Tailwind v4, utility classes like bg-slate-100 are
+ * generated as scoped atomic styles. A static compound CSS selector
+ * targeting the class name as a literal string never matches at runtime,
+ * so table header backgrounds were always transparent — causing Puppeteer
+ * to render inconsistent layout and collapse to a single page.
+ *
+ * NEW (fixed): data-header="true" attribute selector.
+ * This is a plain HTML attribute we control directly — it is completely
+ * independent of Tailwind's build pipeline and always matches reliably.
+ * Apply data-header="true" to every label <td> in TechnicalPreview.jsx.
+ */
+.pdf-corporate-table td[data-header="true"] {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
 }
