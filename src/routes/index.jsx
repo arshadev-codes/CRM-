@@ -38,6 +38,11 @@ import Page10 from "../pages/technical/Page10";
 import Page11 from "../pages/technical/Page11";
 import Page12 from "../pages/technical/Page12";
 import Page13 from "../pages/technical/Page13";
+import Page14 from "../pages/commercial/CommercialPage14"; // Future commercial page
+import Page15 from "../pages/commercial/CommercialPage15"; // Future commercial page
+import Page16 from "../pages/commercial/CommercialPage16"; // Future commercial page
+import Page17 from "../pages/Commercial/CommercialPage17"; // Future commercial page
+
 
 // Print/Preview pages
 import TechnicalPreview from "../print/TechnicalPreview";
@@ -68,7 +73,10 @@ export const router = createBrowserRouter([
       { path: "technical/page11", element: <Page11 /> },
       { path: "technical/page12", element: <Page12 /> },
       { path: "technical/page13", element: <Page13 /> },
-      // Commercial pages — add here when built:
+      { path: "commercial/CommercialPage14", element: <Page14 /> },
+      { path: "commercial/CommercialPage15", element: <Page15 /> },
+      { path: "commercial/CommercialPage16", element: <Page16 /> },
+      { path: "commercial/CommercialPage17", element: <Page17 /> },      // Commercial pages — add here when built:
       // { path: "commercial/page14", element: <Page14 /> },
     ],
   },

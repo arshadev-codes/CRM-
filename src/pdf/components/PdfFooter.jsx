@@ -5,7 +5,7 @@ export default function PdfFooter({ pageNumber }) {
     <div
       style={{
         position: "absolute",
-        bottom: "16mm",
+        bottom: "5mm",
         left: "17.7mm",
         right: "17.7mm",
         boxSizing: "border-box",
@@ -13,9 +13,9 @@ export default function PdfFooter({ pageNumber }) {
     >
       <div
         style={{
-          fontSize: "8.5px",
+          fontSize: "10.5px",
           fontStyle: "italic",
-          color: "#64748b",
+          color: "#54647b",
           lineHeight: "1.45",
           fontFamily: "'Segoe UI', Arial, sans-serif",
           width: "100%",
@@ -46,10 +46,10 @@ export default function PdfFooter({ pageNumber }) {
             style={{
               fontWeight: 700,
               fontStyle: "italic",
-              color: "#0f172a",
+              color: "#052777",
               whiteSpace: "nowrap",
               marginLeft: "12px",
-              fontSize: "8.5px",
+              fontSize: "10.5px",
             }}
           >
             Page {pageNumber} of 24

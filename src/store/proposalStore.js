@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import technicalPagesData from "../data/technicalPagesData";
+import technicalPagesData from "../Data/technicalPagesData";
+import commercialPagesData from "../Data/commercialPagesData";
 
 /* ─────────────────────────────────────────────────────────────
    HELPERS
@@ -9,7 +10,7 @@ import technicalPagesData from "../data/technicalPagesData";
 export async function fileToBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload  = () => resolve(reader.result);
+    reader.onload = () => resolve(reader.result);
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });
@@ -22,6 +23,11 @@ function hydrateTechnicalPages(systemType) {
   // Page13.jsx converts them to base64 data URLs on mount via
   // updateTechnicalPage("page13", ...) so that serialize() captures
   // Puppeteer-compatible image data. Do NOT attempt to store blob URLs here.
+  return JSON.parse(JSON.stringify(raw));
+}
+
+function hydrateCommercialPages(systemType) {
+  const raw = commercialPagesData?.[systemType] ?? {};
   return JSON.parse(JSON.stringify(raw));
 }
 
@@ -76,63 +82,63 @@ function buildSections(technicalPages) {
 
 function makeInitialMeta() {
   return {
-    systemType:        "Advanced",
+    systemType: "Advanced",
     transformerRating: "500 MVA",
-    voltageClass:      "765 kV",
-    preparedBy:        [],
-    proposalDate:      "",
-    proposalNumber:    "",
-    revisionNumber:    "R0",
-    customerRef:       "",
+    voltageClass: "765 kV",
+    preparedBy: [],
+    proposalDate: "",
+    proposalNumber: "",
+    revisionNumber: "R0",
+    customerRef: "",
   };
 }
 
 function makeInitialRfq() {
   return {
-    rfqNumber:       "",
-    rfqDate:         "",
-    customerName:    "",
+    rfqNumber: "",
+    rfqDate: "",
+    customerName: "",
     customerAddress: "",
-    contactPerson:   "",
-    contactEmail:    "",
-    contactPhone:    "",
-    projectTitle:    "",
+    contactPerson: "",
+    contactEmail: "",
+    contactPhone: "",
+    projectTitle: "",
     projectLocation: "",
-    deliveryPeriod:  "",
+    deliveryPeriod: "",
   };
 }
 
 function makeInitialRfqCover() {
   return {
-    title:        "Mr.",
-    to:           "VC Krishna",
-    companyName:  "M/s Neotrafo Solutions India Private Limited",
-    reference:    "",
-    date:         new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
-    preparedBy:   "J.M. Krishna",
-    checkedBy:    "Sabir Baig",
-    revision:     "Rev. 0",
+    title: "Mr.",
+    to: "VC Krishna",
+    companyName: "M/s Neotrafo Solutions India Private Limited",
+    reference: "",
+    date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
+    preparedBy: "J.M. Krishna",
+    checkedBy: "Sabir Baig",
+    revision: "Rev. 0",
     revisionDate: new Date().toLocaleDateString("en-GB"),
-    address:      "S7-1&2, Jai Matadi Compound, Thane-Bhiwandi Road,\nKalher, Thane District, Maharashtra, India – 421302\nTel. No. +91 8692 888 444",
+    address: "S7-1&2, Jai Matadi Compound, Thane-Bhiwandi Road,\nKalher, Thane District, Maharashtra, India – 421302\nTel. No. +91 8692 888 444",
   };
 }
 
 function makeInitialRequirement() {
   return {
-    tests:           [],
+    tests: [],
     additionalNotes: "",
-    trolleyType:     "Automatic",
+    trolleyType: "Automatic",
   };
 }
 
 function makeInitialSystemOverview() {
   return {
-    heading:     "",
-    tagline:     "",
-    intro:       "",
-    project:     "",
+    heading: "",
+    tagline: "",
+    intro: "",
+    project: "",
     description: "",
-    highlights:  [],
+    highlights: [],
   };
 }
 
@@ -148,15 +154,15 @@ export const useProposalStore = create(
          BACKWARD COMPATIBILITY
       ===================================================== */
       proposal: {
-        systemType:        "Advanced",
+        systemType: "Advanced",
         transformerRating: "500 MVA",
-        voltageClass:      "765 kV",
+        voltageClass: "765 kV",
       },
 
       updateProposal: (patch) =>
         set((s) => ({
           proposal: { ...s.proposal, ...patch },
-          meta:     { ...s.meta,     ...patch },
+          meta: { ...s.meta, ...patch },
         })),
 
       /* =====================================================
@@ -170,11 +176,26 @@ export const useProposalStore = create(
       setSystemType: (systemType) =>
         set((s) => {
           if (s.meta.systemType === systemType) return {};
-          const technicalPages = hydrateTechnicalPages(systemType);
+
+          const technicalPages =
+            hydrateTechnicalPages(systemType);
+
+          const commercialPages =
+            hydrateCommercialPages(systemType);
+
           return {
-            proposal:      { ...s.proposal, systemType },
-            meta:          { ...s.meta,     systemType },
+            proposal: {
+              ...s.proposal,
+              systemType,
+            },
+
+            meta: {
+              ...s.meta,
+              systemType,
+            },
+
             technicalPages,
+            commercialPages,
           };
         }),
 
@@ -183,8 +204,8 @@ export const useProposalStore = create(
       ===================================================== */
       cover: {
         companyName: "Electrosoft Automation Private Limited",
-        logoBase64:  null,
-        tagline:     "Transforming Transformer Testing",
+        logoBase64: null,
+        tagline: "Transforming Transformer Testing",
       },
 
       updateCover: (patch) =>
@@ -240,7 +261,11 @@ export const useProposalStore = create(
          mutation so that serialize() always captures the latest
          live state, including base64 image data URLs.
       ===================================================== */
-      technicalPages: hydrateTechnicalPages("Advanced"),
+      technicalPages:
+        hydrateTechnicalPages("Advanced"),
+
+      commercialPages:
+        hydrateCommercialPages("Advanced"),
 
       updateTechnicalPage: (pageKey, patch) =>
         set((s) => ({
@@ -250,13 +275,24 @@ export const useProposalStore = create(
           },
         })),
 
+      updateCommercialPage: (pageKey, patch) =>
+        set((s) => ({
+          commercialPages: {
+            ...s.commercialPages,
+            [pageKey]: {
+              ...s.commercialPages[pageKey],
+              ...patch,
+            },
+          },
+        })),
+
       /* =====================================================
          EXPORT STATUS
       ===================================================== */
       exportStatus: {
-        technical:  "idle",
+        technical: "idle",
         commercial: "idle",
-        full:       "idle",
+        full: "idle",
       },
 
       setExportStatus: (type, status) =>
@@ -268,20 +304,24 @@ export const useProposalStore = create(
       resetProposal: () =>
         set({
           proposal: {
-            systemType:        "Advanced",
+            systemType: "Advanced",
             transformerRating: "500 MVA",
-            voltageClass:      "765 kV",
+            voltageClass: "765 kV",
           },
-          meta:           makeInitialMeta(),
-          rfq:            makeInitialRfq(),
-          rfqCover:       makeInitialRfqCover(),
-          requirement:    makeInitialRequirement(),
+          meta: makeInitialMeta(),
+          rfq: makeInitialRfq(),
+          rfqCover: makeInitialRfqCover(),
+          requirement: makeInitialRequirement(),
           systemOverview: makeInitialSystemOverview(),
-          technicalPages: hydrateTechnicalPages("Advanced"),
+          technicalPages:
+  hydrateTechnicalPages("Advanced"),
+
+commercialPages:
+  hydrateCommercialPages("Advanced"),
           exportStatus: {
-            technical:  "idle",
+            technical: "idle",
             commercial: "idle",
-            full:       "idle",
+            full: "idle",
           },
         }),
 
@@ -301,16 +341,20 @@ export const useProposalStore = create(
       serialize: () => {
         const s = get();
         return {
-          proposal:       s.proposal,
-          meta:           s.meta,
-          cover:          s.cover,
-          rfq:            s.rfq,
-          rfqCover:       s.rfqCover,
-          requirement:    s.requirement,
+          proposal: s.proposal,
+          meta: s.meta,
+          cover: s.cover,
+          rfq: s.rfq,
+          rfqCover: s.rfqCover,
+          requirement: s.requirement,
           systemOverview: s.systemOverview,
+
           technicalPages: s.technicalPages,
-          // sections[] is built at serialize-time from the real technicalPages shape
-          sections:       buildSections(s.technicalPages),
+          commercialPages: s.commercialPages,
+
+          sections: buildSections(
+            s.technicalPages
+          ),
         };
       },
 
@@ -322,17 +366,29 @@ export const useProposalStore = create(
       hydrate: (savedData) =>
         set({
           proposal: {
-            systemType:        savedData?.meta?.systemType        ?? "Advanced",
+            systemType: savedData?.meta?.systemType ?? "Advanced",
             transformerRating: savedData?.meta?.transformerRating ?? "500 MVA",
-            voltageClass:      savedData?.meta?.voltageClass      ?? "765 kV",
+            voltageClass: savedData?.meta?.voltageClass ?? "765 kV",
           },
-          meta:           savedData?.meta           ?? makeInitialMeta(),
-          cover:          savedData?.cover          ?? {},
-          rfq:            savedData?.rfq            ?? makeInitialRfq(),
-          rfqCover:       savedData?.rfqCover       ?? makeInitialRfqCover(),
-          requirement:    savedData?.requirement    ?? makeInitialRequirement(),
+          meta: savedData?.meta ?? makeInitialMeta(),
+          cover: savedData?.cover ?? {},
+          rfq: savedData?.rfq ?? makeInitialRfq(),
+          rfqCover: savedData?.rfqCover ?? makeInitialRfqCover(),
+          requirement: savedData?.requirement ?? makeInitialRequirement(),
           systemOverview: savedData?.systemOverview ?? makeInitialSystemOverview(),
-          technicalPages: savedData?.technicalPages ?? hydrateTechnicalPages("Advanced"),
+          technicalPages:
+            savedData?.technicalPages ??
+            hydrateTechnicalPages(
+              savedData?.meta?.systemType ??
+              "Advanced"
+            ),
+
+          commercialPages:
+            savedData?.commercialPages ??
+            hydrateCommercialPages(
+              savedData?.meta?.systemType ??
+              "Advanced"
+            ),
         }),
     }),
     { name: "ProposalStore" }

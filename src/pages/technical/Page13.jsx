@@ -902,7 +902,7 @@ export default function Page13() {
           <button
             onClick={() =>
               navigate(
-                "/commercial-offer"
+                "/Commercial/CommercialPage14"
               )
             }
             className="

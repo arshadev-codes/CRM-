@@ -225,15 +225,7 @@ export default function Page9() {
           </div>
         )}
 
-         <pre
-  style={{
-    fontSize: "8px",
-    whiteSpace: "pre-wrap",
-    wordBreak: "break-all",
-  }}
->
-  {JSON.stringify(pageData, null, 2)}
-</pre>
+         
 
         {/* FOOTER */}
         <div className={`${isPrintMode ? 'mt-20' : 'mt-20'} flex justify-between items-end`}>

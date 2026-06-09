@@ -17,6 +17,10 @@ import TechnicalPage10Pdf from "../pdf/TechnicalPage10Pdf";
 import TechnicalPage11Pdf from "../pdf/TechnicalPage11Pdf";
 import TechnicalPage12Pdf from "../pdf/TechnicalPage12Pdf";
 import TechnicalPage13Pdf from "../pdf/TechnicalPage13Pdf";
+import CommercialPage14Pdf from "../pdf/CommercialPage14Pdf";
+import CommercialPage15Pdf from "../pdf/CommercialPage15Pdf";
+import CommercialPage16Pdf from "../pdf/CommercialPage16pdf";
+import CommercialPage17Pdf from "../pdf/CommercialPage17pdf";
 
 export default function TechnicalPreview() {
   const [isHydrated, setIsHydrated] = useState(false);
@@ -268,6 +272,10 @@ export default function TechnicalPreview() {
         <div className="inner-pdf-page-wrapper"><TechnicalPage11Pdf /></div>
         <div className="inner-pdf-page-wrapper"><TechnicalPage12Pdf /></div>
         <div className="inner-pdf-page-wrapper"><TechnicalPage13Pdf /></div>
+        <div className="inner-pdf-page-wrapper"><CommercialPage14Pdf /></div>
+        <div className="inner-pdf-page-wrapper"><CommercialPage15Pdf /></div>
+        <div className="inner-pdf-page-wrapper"><CommercialPage16Pdf /></div>
+        <div className="inner-pdf-page-wrapper"><CommercialPage17Pdf /></div>
       </div>
     </PrintLayout>
   );
