@@ -58,9 +58,9 @@ export default function TechnicalPage13Pdf() {
         {/* TITLE */}
         <h2
           style={{
-            fontSize: "14px",
-            fontWeight: "700",
-            color: "#0d4c7f",
+            fontSize: "18px",
+            fontWeight: "900",
+            color: "#09385f",
             marginBottom: "4mm",
           }}
         >

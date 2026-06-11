@@ -68,8 +68,8 @@ export default function SystemOverviewPdf() {
         <h2
           style={{
             fontSize: "18px",
-            color: "#29375c",
-            fontWeight: "700",
+            color: "#09385f",
+            fontWeight: "900",
             margin: "0 0 8px 0",
              textTransform: "uppercase",
             letterSpacing: "0.3px",

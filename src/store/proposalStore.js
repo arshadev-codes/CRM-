@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import technicalPagesData from "../Data/technicalPagesData";
 import commercialPagesData from "../Data/commercialPagesData";
+import commercialPages19to24Data from "../Data/commercialPages19to24Data"; // ← ADD THIS IMPORT
 
 /* ─────────────────────────────────────────────────────────────
    HELPERS
@@ -27,8 +28,12 @@ function hydrateTechnicalPages(systemType) {
 }
 
 function hydrateCommercialPages(systemType) {
-  const raw = commercialPagesData?.[systemType] ?? {};
-  return JSON.parse(JSON.stringify(raw));
+  // Deep-clone base pages (15–18) from commercialPagesData
+  const base = JSON.parse(JSON.stringify(commercialPagesData?.[systemType] ?? {}));
+  // Deep-clone extension pages (19–24) from commercialPages19to24Data
+  const ext  = JSON.parse(JSON.stringify(commercialPages19to24Data?.[systemType] ?? {}));
+  // Merge: ext keys (page19–page24) are added on top of base keys (page15–page18)
+  return { ...base, ...ext };
 }
 
 /*
@@ -177,23 +182,18 @@ export const useProposalStore = create(
         set((s) => {
           if (s.meta.systemType === systemType) return {};
 
-          const technicalPages =
-            hydrateTechnicalPages(systemType);
-
-          const commercialPages =
-            hydrateCommercialPages(systemType);
+          const technicalPages = hydrateTechnicalPages(systemType);
+          const commercialPages = hydrateCommercialPages(systemType); // ← now includes pages 19–24
 
           return {
             proposal: {
               ...s.proposal,
               systemType,
             },
-
             meta: {
               ...s.meta,
               systemType,
             },
-
             technicalPages,
             commercialPages,
           };
@@ -261,11 +261,10 @@ export const useProposalStore = create(
          mutation so that serialize() always captures the latest
          live state, including base64 image data URLs.
       ===================================================== */
-      technicalPages:
-        hydrateTechnicalPages("Advanced"),
+      technicalPages: hydrateTechnicalPages("Advanced"),
 
-      commercialPages:
-        hydrateCommercialPages("Advanced"),
+      // commercialPages now includes pages 15–18 (base) + 19–24 (ext) merged
+      commercialPages: hydrateCommercialPages("Advanced"),
 
       updateTechnicalPage: (pageKey, patch) =>
         set((s) => ({
@@ -313,11 +312,8 @@ export const useProposalStore = create(
           rfqCover: makeInitialRfqCover(),
           requirement: makeInitialRequirement(),
           systemOverview: makeInitialSystemOverview(),
-          technicalPages:
-  hydrateTechnicalPages("Advanced"),
-
-commercialPages:
-  hydrateCommercialPages("Advanced"),
+          technicalPages: hydrateTechnicalPages("Advanced"),
+          commercialPages: hydrateCommercialPages("Advanced"), // ← includes 19–24
           exportStatus: {
             technical: "idle",
             commercial: "idle",
@@ -348,13 +344,9 @@ commercialPages:
           rfqCover: s.rfqCover,
           requirement: s.requirement,
           systemOverview: s.systemOverview,
-
           technicalPages: s.technicalPages,
-          commercialPages: s.commercialPages,
-
-          sections: buildSections(
-            s.technicalPages
-          ),
+          commercialPages: s.commercialPages, // ← pages 19–24 now included
+          sections: buildSections(s.technicalPages),
         };
       },
 
@@ -378,17 +370,10 @@ commercialPages:
           systemOverview: savedData?.systemOverview ?? makeInitialSystemOverview(),
           technicalPages:
             savedData?.technicalPages ??
-            hydrateTechnicalPages(
-              savedData?.meta?.systemType ??
-              "Advanced"
-            ),
-
+            hydrateTechnicalPages(savedData?.meta?.systemType ?? "Advanced"),
           commercialPages:
             savedData?.commercialPages ??
-            hydrateCommercialPages(
-              savedData?.meta?.systemType ??
-              "Advanced"
-            ),
+            hydrateCommercialPages(savedData?.meta?.systemType ?? "Advanced"), // ← includes 19–24
         }),
     }),
     { name: "ProposalStore" }

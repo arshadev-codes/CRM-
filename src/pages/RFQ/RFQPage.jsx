@@ -310,7 +310,7 @@ export default function RFQPage() {
         </div>
       </div>
 
-      {/* NEXT BUTTON - Hide in print mode */}
+      {/* NEXT BUTTON - Hide in print mode
       {!isPrintMode && (
         <div className="flex justify-end mt-6">
           <button
@@ -320,7 +320,7 @@ export default function RFQPage() {
             Next Page →
           </button>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

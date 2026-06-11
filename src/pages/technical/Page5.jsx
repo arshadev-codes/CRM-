@@ -223,7 +223,7 @@ export default function Page5() {
           {sections.map((section, sectionIndex) => renderSection(section, sectionIndex))}
         </div>
 
-        {/* NAVIGATION - Hide in print mode */}
+        {/* NAVIGATION - Hide in print mode
         {!isPrintMode && (
           <div className="flex justify-between items-center mt-12">
             <button
@@ -240,7 +240,7 @@ export default function Page5() {
               Next Page →
             </button>
           </div>
-        )}
+        )} */}
 
         {/* FOOTER */}
         <div className={`${isPrintMode ? 'mt-20' : 'mt-20'} flex justify-between items-end`}>

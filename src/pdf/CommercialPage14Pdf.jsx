@@ -29,14 +29,13 @@ export default function CommercialPage14Pdf() {
 
         <div
           style={{
-            marginBottom: "6mm",
           }}
         >
           <div
             style={{
-              fontSize: "16px",
-              fontWeight: 700,
-              color: "#08477a",
+              fontSize: "18px",
+              fontWeight: 900,
+              color: "#09385f",
             }}
           >
             {pageData.title}

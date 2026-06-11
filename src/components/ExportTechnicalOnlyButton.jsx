@@ -1,18 +1,9 @@
 /**
- * ExportButton.jsx
+ * ExportTechnicalOnlyButton.jsx
  *
- * Unified export button. All three types use the same
- * /api/export/technical endpoint (the single Puppeteer route).
- * The exportScope field in the payload controls what renders:
- *
- *   type "technical"  → exportScope: "technical"  → pages 1–13
- *   type "commercial" → exportScope: "full"        → pages 1–24
- *   type "full"       → exportScope: "full"        → pages 1–24
- *
- * Props:
- *   type:       "technical" | "commercial" | "full"
- *   label?:     string  (button label override)
- *   className?: string
+ * Exports ONLY the Technical Offer PDF (pages 1–13).
+ * Sends exportScope: "technical" so TechnicalPreview skips
+ * all commercial pages and avoids the blank trailing page.
  */
 
 import { useProposalStore } from "../store/proposalStore";
@@ -20,50 +11,28 @@ import { FileDown, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
 
-const EXPORT_CONFIG = {
-  technical: {
-    defaultLabel: "Export Technical PDF",
-    exportScope:  "technical",
-    filename: (n) => `Technical-Proposal-${n || "Draft"}.pdf`,
-  },
-  commercial: {
-    defaultLabel: "Export Full Proposal PDF",
-    exportScope:  "full",
-    filename: (n) => `Techno-Commercial-Proposal-${n || "Draft"}.pdf`,
-  },
-  full: {
-    defaultLabel: "Export Full Proposal PDF",
-    exportScope:  "full",
-    filename: (n) => `Full-Proposal-${n || "Draft"}.pdf`,
-  },
-};
-
-export default function ExportButton({ type = "technical", label, className = "" }) {
+export default function ExportTechnicalOnlyButton({ label, className = "" }) {
   const serialize       = useProposalStore((s) => s.serialize);
   const meta            = useProposalStore((s) => s.meta);
-  const exportStatus    = useProposalStore((s) => s.exportStatus[type]);
+  const exportStatus    = useProposalStore((s) => s.exportStatus.technicalOnly);
   const setExportStatus = useProposalStore((s) => s.setExportStatus);
-
-  const config = EXPORT_CONFIG[type];
 
   const handleExport = async () => {
     if (exportStatus === "loading") return;
 
-    setExportStatus(type, "loading");
+    setExportStatus("technicalOnly", "loading");
 
     try {
       const full = serialize();
 
+      // Strip commercial data and mark scope so TechnicalPreview
+      // only renders pages 1–13.
       const proposalData = {
         ...full,
-        // "technical" scope strips commercial pages so the print
-        // route only renders pages 1–13 (avoids extra blank page).
-        ...(config.exportScope === "technical" && { commercialPages: {} }),
-        exportScope: config.exportScope,
+        commercialPages: {},
+        exportScope: "technical",  // ← key flag read by TechnicalPreview
       };
 
-      // All export types go through the single /api/export/technical
-      // endpoint — the scope flag decides which pages Puppeteer renders.
       const response = await fetch(`${API_BASE}/api/export/technical`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -79,16 +48,16 @@ export default function ExportButton({ type = "technical", label, className = ""
       const url    = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
       anchor.href     = url;
-      anchor.download = config.filename(meta?.proposalNumber);
+      anchor.download = `Technical-Proposal-${meta?.proposalNumber || "Draft"}.pdf`;
       anchor.click();
       URL.revokeObjectURL(url);
 
-      setExportStatus(type, "success");
-      setTimeout(() => setExportStatus(type, "idle"), 3000);
+      setExportStatus("technicalOnly", "success");
+      setTimeout(() => setExportStatus("technicalOnly", "idle"), 3000);
     } catch (err) {
-      console.error("[ExportButton] PDF generation failed:", err);
-      setExportStatus(type, "error");
-      setTimeout(() => setExportStatus(type, "idle"), 4000);
+      console.error("[ExportTechnicalOnlyButton] PDF generation failed:", err);
+      setExportStatus("technicalOnly", "error");
+      setTimeout(() => setExportStatus("technicalOnly", "idle"), 4000);
     }
   };
 
@@ -124,7 +93,7 @@ export default function ExportButton({ type = "technical", label, className = ""
       {isLoading  ? "Generating PDF…"
         : isSuccess ? "PDF Downloaded!"
         : isError   ? "Export Failed — Retry"
-        : (label ?? config.defaultLabel)}
+        : (label ?? "Export Technical PDF")}
     </button>
   );
 }

@@ -521,7 +521,7 @@ export default function CommercialPage16() {
 
         {/* NAVIGATION */}
 
-        <div className="flex justify-between mt-8">
+        {/* <div className="flex justify-between mt-8">
 
           <button
             onClick={() =>
@@ -545,7 +545,7 @@ export default function CommercialPage16() {
             Next →
           </button>
 
-        </div>
+        </div> */}
 
       </div>
     </div>

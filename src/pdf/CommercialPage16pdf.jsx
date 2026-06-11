@@ -70,11 +70,10 @@ export default function CommercialPage16Pdf() {
 
             style={{
 
-              fontSize: "16px",
+              fontSize: "18px",
 
-              fontWeight: 700,
-
-              color: "#08477a",
+              fontWeight: 900,
+              color: "#09385f",
 
             }}
 
@@ -772,5 +771,5 @@ export default function CommercialPage16Pdf() {
 
   );
 
-} 
+}
 

@@ -207,7 +207,7 @@ export default function Page9() {
         </div>
 
         {/* NAVIGATION - Hide in print mode */}
-        {!isPrintMode && (
+        {/* {!isPrintMode && (
           <div className="flex justify-between items-center mt-12">
             <button
               onClick={() => navigate("/technical/page8")}
@@ -223,7 +223,7 @@ export default function Page9() {
               Next Page →
             </button>
           </div>
-        )}
+        )} */}
 
          
 

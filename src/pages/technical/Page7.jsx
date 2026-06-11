@@ -189,7 +189,7 @@ export default function Page7() {
         </div>
 
         {/* NAVIGATION - Hide in print mode */}
-        {!isPrintMode && (
+        {/* {!isPrintMode && (
           <div className="flex justify-between items-center mt-12">
             <button
               onClick={() => navigate("/technical/page6")}
@@ -205,7 +205,7 @@ export default function Page7() {
               Next Page →
             </button>
           </div>
-        )}
+        )} */}
 
         {/* FOOTER */}
         <div className={`${isPrintMode ? 'mt-20' : 'mt-20'} flex justify-between items-end`}>

@@ -42,6 +42,13 @@ import Page14 from "../pages/commercial/CommercialPage14"; // Future commercial 
 import Page15 from "../pages/commercial/CommercialPage15"; // Future commercial page
 import Page16 from "../pages/commercial/CommercialPage16"; // Future commercial page
 import Page17 from "../pages/Commercial/CommercialPage17"; // Future commercial page
+import Page18 from "../pages/Commercial/CommercialPage18"; // Future commercial page
+import Page19 from "../pages/Commercial/CommercialPage19"; // Future commercial page
+import Page20 from "../pages/Commercial/CommercialPage20"; // Future commercial page
+import Page21 from "../pages/Commercial/CommercialPage21"; // Future commercial page
+import Page22 from "../pages/Commercial/CommercialPage22"; // Future commercial page
+import Page23 from "../pages/Commercial/CommercialPage23"; // Future commercial page
+import Page24 from "../pages/Commercial/CommercialPage24"; // Future commercial page
 
 
 // Print/Preview pages
@@ -76,8 +83,14 @@ export const router = createBrowserRouter([
       { path: "commercial/CommercialPage14", element: <Page14 /> },
       { path: "commercial/CommercialPage15", element: <Page15 /> },
       { path: "commercial/CommercialPage16", element: <Page16 /> },
-      { path: "commercial/CommercialPage17", element: <Page17 /> },      // Commercial pages — add here when built:
-      // { path: "commercial/page14", element: <Page14 /> },
+      { path: "commercial/CommercialPage17", element: <Page17 /> },
+      { path: "commercial/CommercialPage18", element: <Page18 /> },
+      { path: "commercial/CommercialPage19", element: <Page19 /> },  
+      {path: "commercial/CommercialPage20", element: <Page20 /> },
+      {path: "commercial/CommercialPage21", element: <Page21 /> },
+      {path: "commercial/CommercialPage22", element: <Page22 /> },
+      {path: "commercial/CommercialPage23", element: <Page23 /> },
+      {path: "commercial/CommercialPage24", element: <Page24 /> },
     ],
   },
 

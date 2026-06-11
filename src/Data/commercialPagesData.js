@@ -364,185 +364,185 @@ const commercialPagesData = {
         },
 
         page17: {
-  title: "ELECTROSOFT'S SCOPE OF SERVICES",
+            title: "ELECTROSOFT'S SCOPE OF SERVICES",
 
-  offsiteTitle:
-    "OFF-SITE: DELIVERABLE DOCUMENTS",
+            offsiteTitle:
+                "OFF-SITE: DELIVERABLE DOCUMENTS",
 
-  offsiteItems: [
-    {
-      srNo: 1,
-      description:
-        "Single Line Diagram for Power distribution circuit",
-      quantity: "",
-      price: "",
-    },
+            offsiteItems: [
+                {
+                    srNo: 1,
+                    description:
+                        "Single Line Diagram for Power distribution circuit",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 2,
-      description:
-        "General Assembly Diagram for Test Bench, LT & HT Panel, etc.",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 2,
+                    description:
+                        "General Assembly Diagram for Test Bench, LT & HT Panel, etc.",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 3,
-      description:
-        "Wiring Diagram for Test Bench, LT & HT panel, etc.",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 3,
+                    description:
+                        "Wiring Diagram for Test Bench, LT & HT panel, etc.",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 4,
-      description:
-        "Detailed Cable schedule & Terminal schedule",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 4,
+                    description:
+                        "Detailed Cable schedule & Terminal schedule",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 5,
-      description:
-        "Control Logic diagram",
-      quantity: "1 set",
-      price: "---",
-    },
+                {
+                    srNo: 5,
+                    description:
+                        "Control Logic diagram",
+                    quantity: "1 set",
+                    price: "---",
+                },
 
-    {
-      srNo: 6,
-      description:
-        "Datasheets of major components",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 6,
+                    description:
+                        "Datasheets of major components",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 7,
-      description:
-        "FAT (Factory Acceptance Test) procedure / Checklist",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 7,
+                    description:
+                        "FAT (Factory Acceptance Test) procedure / Checklist",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 8,
-      description:
-        "Operation Manual (Basic startup/usage instructions)",
-      quantity: "",
-      price: "",
-    },
-  ],
+                {
+                    srNo: 8,
+                    description:
+                        "Operation Manual (Basic startup/usage instructions)",
+                    quantity: "",
+                    price: "",
+                },
+            ],
 
-  onsiteTitle: "ON-SITE",
+            onsiteTitle: "ON-SITE",
 
-  onsiteItems: [
-    {
-      srNo: 1,
-      description:
-        "Commissioning of Type Transformer Testing System",
-      quantity: "",
-      price: "",
-    },
+            onsiteItems: [
+                {
+                    srNo: 1,
+                    description:
+                        "Commissioning of Type Transformer Testing System",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 2,
-      description:
-        "Supervision of Installation",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 2,
+                    description:
+                        "Supervision of Installation",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 3,
-      description:
-        "On-site operational training to M/s Neotrafo Solutions India Private Limited Engineers",
-      quantity: "1 set",
-      price: "---",
-    },
+                {
+                    srNo: 3,
+                    description:
+                        "On-site operational training to M/s Neotrafo Solutions India Private Limited Engineers",
+                    quantity: "1 set",
+                    price: "---",
+                },
 
-    {
-      srNo: 4,
-      description:
-        "Demonstration of data logging / report generation features (if applicable)",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 4,
+                    description:
+                        "Demonstration of data logging / report generation features (if applicable)",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 5,
-      description:
-        "On-site Transformer testing trials",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 5,
+                    description:
+                        "On-site Transformer testing trials",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 6,
-      description:
-        "Safety and Emergency Procedure briefing",
-      quantity: "",
-      price: "",
-    },
-  ],
+                {
+                    srNo: 6,
+                    description:
+                        "Safety and Emergency Procedure briefing",
+                    quantity: "",
+                    price: "",
+                },
+            ],
 
-  deliveryTitle: "DELIVERY SCHEDULE",
+            deliveryTitle: "DELIVERY SCHEDULE",
 
-  deliverySchedule: [
-    {
-      srNo: 1,
-      details: "Deliverable documents",
-      duration: "To be discussed later",
-    },
+            deliverySchedule: [
+                {
+                    srNo: 1,
+                    details: "Deliverable documents",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 2,
-      details: "Supply of material",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 2,
+                    details: "Supply of material",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 3,
-      details: "Packing, Forwarding & Transit",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 3,
+                    details: "Packing, Forwarding & Transit",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 4,
-      details: "Erection",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 4,
+                    details: "Erection",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 5,
-      details: "Supervision of Installation",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 5,
+                    details: "Supervision of Installation",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 6,
-      details: "Commissioning",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 6,
+                    details: "Commissioning",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 7,
-      details: "Training",
-      duration: "To be discussed later",
-    },
-  ],
+                {
+                    srNo: 7,
+                    details: "Training",
+                    duration: "To be discussed later",
+                },
+            ],
 
-  notes: [
-    "Schedule is subject to timely purchase order, advance payment and approval of GA, Wiring diagram, technical specification of all items.",
+            notes: [
+                "Schedule is subject to timely purchase order, advance payment and approval of GA, Wiring diagram, technical specification of all items.",
 
-    "M/s Neotrafo Solutions India Private Limited will depute its engineers for FAT. During FAT, individual goods will be offered for FAT at our manufacturing facility, not an integrated Laboratory. Integration will be done on-site.",
+                "M/s Neotrafo Solutions India Private Limited will depute its engineers for FAT. During FAT, individual goods will be offered for FAT at our manufacturing facility, not an integrated Laboratory. Integration will be done on-site.",
 
-    "Our offer is strictly as per BOM. If any additional equipment other than BOM required for fulfilment for your testing system will be extra.",
+                "Our offer is strictly as per BOM. If any additional equipment other than BOM required for fulfilment for your testing system will be extra.",
 
-    "Lodging and boarding during on-site period for commissioning engineers will be arranged by M/s Neotrafo Solutions India Private Limited.",
-  ],
-},
+                "Lodging and boarding during on-site period for commissioning engineers will be arranged by M/s Neotrafo Solutions India Private Limited.",
+            ],
+        },
 
     },
 
@@ -903,185 +903,185 @@ const commercialPagesData = {
         },
 
         page17: {
-  title: "ELECTROSOFT'S SCOPE OF SERVICES",
+            title: "ELECTROSOFT'S SCOPE OF SERVICES",
 
-  offsiteTitle:
-    "OFF-SITE: DELIVERABLE DOCUMENTS",
+            offsiteTitle:
+                "OFF-SITE: DELIVERABLE DOCUMENTS",
 
-  offsiteItems: [
-    {
-      srNo: 1,
-      description:
-        "Single Line Diagram for Power distribution circuit",
-      quantity: "",
-      price: "",
-    },
+            offsiteItems: [
+                {
+                    srNo: 1,
+                    description:
+                        "Single Line Diagram for Power distribution circuit",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 2,
-      description:
-        "General Assembly Diagram for Test Bench, LT & HT Panel, etc.",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 2,
+                    description:
+                        "General Assembly Diagram for Test Bench, LT & HT Panel, etc.",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 3,
-      description:
-        "Wiring Diagram for Test Bench, LT & HT panel, etc.",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 3,
+                    description:
+                        "Wiring Diagram for Test Bench, LT & HT panel, etc.",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 4,
-      description:
-        "Detailed Cable schedule & Terminal schedule",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 4,
+                    description:
+                        "Detailed Cable schedule & Terminal schedule",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 5,
-      description:
-        "Control Logic diagram",
-      quantity: "1 set",
-      price: "---",
-    },
+                {
+                    srNo: 5,
+                    description:
+                        "Control Logic diagram",
+                    quantity: "1 set",
+                    price: "---",
+                },
 
-    {
-      srNo: 6,
-      description:
-        "Datasheets of major components",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 6,
+                    description:
+                        "Datasheets of major components",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 7,
-      description:
-        "FAT (Factory Acceptance Test) procedure / Checklist",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 7,
+                    description:
+                        "FAT (Factory Acceptance Test) procedure / Checklist",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 8,
-      description:
-        "Operation Manual (Basic startup/usage instructions)",
-      quantity: "",
-      price: "",
-    },
-  ],
+                {
+                    srNo: 8,
+                    description:
+                        "Operation Manual (Basic startup/usage instructions)",
+                    quantity: "",
+                    price: "",
+                },
+            ],
 
-  onsiteTitle: "ON-SITE",
+            onsiteTitle: "ON-SITE",
 
-  onsiteItems: [
-    {
-      srNo: 1,
-      description:
-        "Commissioning of Type Transformer Testing System",
-      quantity: "",
-      price: "",
-    },
+            onsiteItems: [
+                {
+                    srNo: 1,
+                    description:
+                        "Commissioning of Type Transformer Testing System",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 2,
-      description:
-        "Supervision of Installation",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 2,
+                    description:
+                        "Supervision of Installation",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 3,
-      description:
-        "On-site operational training to M/s Neotrafo Solutions India Private Limited Engineers",
-      quantity: "1 set",
-      price: "---",
-    },
+                {
+                    srNo: 3,
+                    description:
+                        "On-site operational training to M/s Neotrafo Solutions India Private Limited Engineers",
+                    quantity: "1 set",
+                    price: "---",
+                },
 
-    {
-      srNo: 4,
-      description:
-        "Demonstration of data logging / report generation features (if applicable)",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 4,
+                    description:
+                        "Demonstration of data logging / report generation features (if applicable)",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 5,
-      description:
-        "On-site Transformer testing trials",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 5,
+                    description:
+                        "On-site Transformer testing trials",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 6,
-      description:
-        "Safety and Emergency Procedure briefing",
-      quantity: "",
-      price: "",
-    },
-  ],
+                {
+                    srNo: 6,
+                    description:
+                        "Safety and Emergency Procedure briefing",
+                    quantity: "",
+                    price: "",
+                },
+            ],
 
-  deliveryTitle: "DELIVERY SCHEDULE",
+            deliveryTitle: "DELIVERY SCHEDULE",
 
-  deliverySchedule: [
-    {
-      srNo: 1,
-      details: "Deliverable documents",
-      duration: "To be discussed later",
-    },
+            deliverySchedule: [
+                {
+                    srNo: 1,
+                    details: "Deliverable documents",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 2,
-      details: "Supply of material",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 2,
+                    details: "Supply of material",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 3,
-      details: "Packing, Forwarding & Transit",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 3,
+                    details: "Packing, Forwarding & Transit",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 4,
-      details: "Erection",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 4,
+                    details: "Erection",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 5,
-      details: "Supervision of Installation",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 5,
+                    details: "Supervision of Installation",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 6,
-      details: "Commissioning",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 6,
+                    details: "Commissioning",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 7,
-      details: "Training",
-      duration: "To be discussed later",
-    },
-  ],
+                {
+                    srNo: 7,
+                    details: "Training",
+                    duration: "To be discussed later",
+                },
+            ],
 
-  notes: [
-    "Schedule is subject to timely purchase order, advance payment and approval of GA, Wiring diagram, technical specification of all items.",
+            notes: [
+                "Schedule is subject to timely purchase order, advance payment and approval of GA, Wiring diagram, technical specification of all items.",
 
-    "M/s Neotrafo Solutions India Private Limited will depute its engineers for FAT. During FAT, individual goods will be offered for FAT at our manufacturing facility, not an integrated Laboratory. Integration will be done on-site.",
+                "M/s Neotrafo Solutions India Private Limited will depute its engineers for FAT. During FAT, individual goods will be offered for FAT at our manufacturing facility, not an integrated Laboratory. Integration will be done on-site.",
 
-    "Our offer is strictly as per BOM. If any additional equipment other than BOM required for fulfilment for your testing system will be extra.",
+                "Our offer is strictly as per BOM. If any additional equipment other than BOM required for fulfilment for your testing system will be extra.",
 
-    "Lodging and boarding during on-site period for commissioning engineers will be arranged by M/s Neotrafo Solutions India Private Limited.",
-  ],
-},
+                "Lodging and boarding during on-site period for commissioning engineers will be arranged by M/s Neotrafo Solutions India Private Limited.",
+            ],
+        },
     },
 
     SemiAutomatic: {
@@ -1442,185 +1442,185 @@ const commercialPagesData = {
         },
 
         page17: {
-  title: "ELECTROSOFT'S SCOPE OF SERVICES",
+            title: "ELECTROSOFT'S SCOPE OF SERVICES",
 
-  offsiteTitle:
-    "OFF-SITE: DELIVERABLE DOCUMENTS",
+            offsiteTitle:
+                "OFF-SITE: DELIVERABLE DOCUMENTS",
 
-  offsiteItems: [
-    {
-      srNo: 1,
-      description:
-        "Single Line Diagram for Power distribution circuit",
-      quantity: "",
-      price: "",
-    },
+            offsiteItems: [
+                {
+                    srNo: 1,
+                    description:
+                        "Single Line Diagram for Power distribution circuit",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 2,
-      description:
-        "General Assembly Diagram for Test Bench, LT & HT Panel, etc.",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 2,
+                    description:
+                        "General Assembly Diagram for Test Bench, LT & HT Panel, etc.",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 3,
-      description:
-        "Wiring Diagram for Test Bench, LT & HT panel, etc.",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 3,
+                    description:
+                        "Wiring Diagram for Test Bench, LT & HT panel, etc.",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 4,
-      description:
-        "Detailed Cable schedule & Terminal schedule",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 4,
+                    description:
+                        "Detailed Cable schedule & Terminal schedule",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 5,
-      description:
-        "Control Logic diagram",
-      quantity: "1 set",
-      price: "---",
-    },
+                {
+                    srNo: 5,
+                    description:
+                        "Control Logic diagram",
+                    quantity: "1 set",
+                    price: "---",
+                },
 
-    {
-      srNo: 6,
-      description:
-        "Datasheets of major components",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 6,
+                    description:
+                        "Datasheets of major components",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 7,
-      description:
-        "FAT (Factory Acceptance Test) procedure / Checklist",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 7,
+                    description:
+                        "FAT (Factory Acceptance Test) procedure / Checklist",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 8,
-      description:
-        "Operation Manual (Basic startup/usage instructions)",
-      quantity: "",
-      price: "",
-    },
-  ],
+                {
+                    srNo: 8,
+                    description:
+                        "Operation Manual (Basic startup/usage instructions)",
+                    quantity: "",
+                    price: "",
+                },
+            ],
 
-  onsiteTitle: "ON-SITE",
+            onsiteTitle: "ON-SITE",
 
-  onsiteItems: [
-    {
-      srNo: 1,
-      description:
-        "Commissioning of Type Transformer Testing System",
-      quantity: "",
-      price: "",
-    },
+            onsiteItems: [
+                {
+                    srNo: 1,
+                    description:
+                        "Commissioning of Type Transformer Testing System",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 2,
-      description:
-        "Supervision of Installation",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 2,
+                    description:
+                        "Supervision of Installation",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 3,
-      description:
-        "On-site operational training to M/s Neotrafo Solutions India Private Limited Engineers",
-      quantity: "1 set",
-      price: "---",
-    },
+                {
+                    srNo: 3,
+                    description:
+                        "On-site operational training to M/s Neotrafo Solutions India Private Limited Engineers",
+                    quantity: "1 set",
+                    price: "---",
+                },
 
-    {
-      srNo: 4,
-      description:
-        "Demonstration of data logging / report generation features (if applicable)",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 4,
+                    description:
+                        "Demonstration of data logging / report generation features (if applicable)",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 5,
-      description:
-        "On-site Transformer testing trials",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 5,
+                    description:
+                        "On-site Transformer testing trials",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 6,
-      description:
-        "Safety and Emergency Procedure briefing",
-      quantity: "",
-      price: "",
-    },
-  ],
+                {
+                    srNo: 6,
+                    description:
+                        "Safety and Emergency Procedure briefing",
+                    quantity: "",
+                    price: "",
+                },
+            ],
 
-  deliveryTitle: "DELIVERY SCHEDULE",
+            deliveryTitle: "DELIVERY SCHEDULE",
 
-  deliverySchedule: [
-    {
-      srNo: 1,
-      details: "Deliverable documents",
-      duration: "To be discussed later",
-    },
+            deliverySchedule: [
+                {
+                    srNo: 1,
+                    details: "Deliverable documents",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 2,
-      details: "Supply of material",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 2,
+                    details: "Supply of material",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 3,
-      details: "Packing, Forwarding & Transit",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 3,
+                    details: "Packing, Forwarding & Transit",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 4,
-      details: "Erection",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 4,
+                    details: "Erection",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 5,
-      details: "Supervision of Installation",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 5,
+                    details: "Supervision of Installation",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 6,
-      details: "Commissioning",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 6,
+                    details: "Commissioning",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 7,
-      details: "Training",
-      duration: "To be discussed later",
-    },
-  ],
+                {
+                    srNo: 7,
+                    details: "Training",
+                    duration: "To be discussed later",
+                },
+            ],
 
-  notes: [
-    "Schedule is subject to timely purchase order, advance payment and approval of GA, Wiring diagram, technical specification of all items.",
+            notes: [
+                "Schedule is subject to timely purchase order, advance payment and approval of GA, Wiring diagram, technical specification of all items.",
 
-    "M/s Neotrafo Solutions India Private Limited will depute its engineers for FAT. During FAT, individual goods will be offered for FAT at our manufacturing facility, not an integrated Laboratory. Integration will be done on-site.",
+                "M/s Neotrafo Solutions India Private Limited will depute its engineers for FAT. During FAT, individual goods will be offered for FAT at our manufacturing facility, not an integrated Laboratory. Integration will be done on-site.",
 
-    "Our offer is strictly as per BOM. If any additional equipment other than BOM required for fulfilment for your testing system will be extra.",
+                "Our offer is strictly as per BOM. If any additional equipment other than BOM required for fulfilment for your testing system will be extra.",
 
-    "Lodging and boarding during on-site period for commissioning engineers will be arranged by M/s Neotrafo Solutions India Private Limited.",
-  ],
-},
+                "Lodging and boarding during on-site period for commissioning engineers will be arranged by M/s Neotrafo Solutions India Private Limited.",
+            ],
+        },
     },
 
     Manual: {
@@ -1980,185 +1980,185 @@ const commercialPagesData = {
         },
 
         page17: {
-  title: "ELECTROSOFT'S SCOPE OF SERVICES",
+            title: "ELECTROSOFT'S SCOPE OF SERVICES",
 
-  offsiteTitle:
-    "OFF-SITE: DELIVERABLE DOCUMENTS",
+            offsiteTitle:
+                "OFF-SITE: DELIVERABLE DOCUMENTS",
 
-  offsiteItems: [
-    {
-      srNo: 1,
-      description:
-        "Single Line Diagram for Power distribution circuit",
-      quantity: "",
-      price: "",
-    },
+            offsiteItems: [
+                {
+                    srNo: 1,
+                    description:
+                        "Single Line Diagram for Power distribution circuit",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 2,
-      description:
-        "General Assembly Diagram for Test Bench, LT & HT Panel, etc.",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 2,
+                    description:
+                        "General Assembly Diagram for Test Bench, LT & HT Panel, etc.",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 3,
-      description:
-        "Wiring Diagram for Test Bench, LT & HT panel, etc.",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 3,
+                    description:
+                        "Wiring Diagram for Test Bench, LT & HT panel, etc.",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 4,
-      description:
-        "Detailed Cable schedule & Terminal schedule",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 4,
+                    description:
+                        "Detailed Cable schedule & Terminal schedule",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 5,
-      description:
-        "Control Logic diagram",
-      quantity: "1 set",
-      price: "---",
-    },
+                {
+                    srNo: 5,
+                    description:
+                        "Control Logic diagram",
+                    quantity: "1 set",
+                    price: "---",
+                },
 
-    {
-      srNo: 6,
-      description:
-        "Datasheets of major components",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 6,
+                    description:
+                        "Datasheets of major components",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 7,
-      description:
-        "FAT (Factory Acceptance Test) procedure / Checklist",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 7,
+                    description:
+                        "FAT (Factory Acceptance Test) procedure / Checklist",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 8,
-      description:
-        "Operation Manual (Basic startup/usage instructions)",
-      quantity: "",
-      price: "",
-    },
-  ],
+                {
+                    srNo: 8,
+                    description:
+                        "Operation Manual (Basic startup/usage instructions)",
+                    quantity: "",
+                    price: "",
+                },
+            ],
 
-  onsiteTitle: "ON-SITE",
+            onsiteTitle: "ON-SITE",
 
-  onsiteItems: [
-    {
-      srNo: 1,
-      description:
-        "Commissioning of Type Transformer Testing System",
-      quantity: "",
-      price: "",
-    },
+            onsiteItems: [
+                {
+                    srNo: 1,
+                    description:
+                        "Commissioning of Type Transformer Testing System",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 2,
-      description:
-        "Supervision of Installation",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 2,
+                    description:
+                        "Supervision of Installation",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 3,
-      description:
-        "On-site operational training to M/s Neotrafo Solutions India Private Limited Engineers",
-      quantity: "1 set",
-      price: "---",
-    },
+                {
+                    srNo: 3,
+                    description:
+                        "On-site operational training to M/s Neotrafo Solutions India Private Limited Engineers",
+                    quantity: "1 set",
+                    price: "---",
+                },
 
-    {
-      srNo: 4,
-      description:
-        "Demonstration of data logging / report generation features (if applicable)",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 4,
+                    description:
+                        "Demonstration of data logging / report generation features (if applicable)",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 5,
-      description:
-        "On-site Transformer testing trials",
-      quantity: "",
-      price: "",
-    },
+                {
+                    srNo: 5,
+                    description:
+                        "On-site Transformer testing trials",
+                    quantity: "",
+                    price: "",
+                },
 
-    {
-      srNo: 6,
-      description:
-        "Safety and Emergency Procedure briefing",
-      quantity: "",
-      price: "",
-    },
-  ],
+                {
+                    srNo: 6,
+                    description:
+                        "Safety and Emergency Procedure briefing",
+                    quantity: "",
+                    price: "",
+                },
+            ],
 
-  deliveryTitle: "DELIVERY SCHEDULE",
+            deliveryTitle: "DELIVERY SCHEDULE",
 
-  deliverySchedule: [
-    {
-      srNo: 1,
-      details: "Deliverable documents",
-      duration: "To be discussed later",
-    },
+            deliverySchedule: [
+                {
+                    srNo: 1,
+                    details: "Deliverable documents",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 2,
-      details: "Supply of material",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 2,
+                    details: "Supply of material",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 3,
-      details: "Packing, Forwarding & Transit",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 3,
+                    details: "Packing, Forwarding & Transit",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 4,
-      details: "Erection",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 4,
+                    details: "Erection",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 5,
-      details: "Supervision of Installation",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 5,
+                    details: "Supervision of Installation",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 6,
-      details: "Commissioning",
-      duration: "To be discussed later",
-    },
+                {
+                    srNo: 6,
+                    details: "Commissioning",
+                    duration: "To be discussed later",
+                },
 
-    {
-      srNo: 7,
-      details: "Training",
-      duration: "To be discussed later",
-    },
-  ],
+                {
+                    srNo: 7,
+                    details: "Training",
+                    duration: "To be discussed later",
+                },
+            ],
 
-  notes: [
-    "Schedule is subject to timely purchase order, advance payment and approval of GA, Wiring diagram, technical specification of all items.",
+            notes: [
+                "Schedule is subject to timely purchase order, advance payment and approval of GA, Wiring diagram, technical specification of all items.",
 
-    "M/s Neotrafo Solutions India Private Limited will depute its engineers for FAT. During FAT, individual goods will be offered for FAT at our manufacturing facility, not an integrated Laboratory. Integration will be done on-site.",
+                "M/s Neotrafo Solutions India Private Limited will depute its engineers for FAT. During FAT, individual goods will be offered for FAT at our manufacturing facility, not an integrated Laboratory. Integration will be done on-site.",
 
-    "Our offer is strictly as per BOM. If any additional equipment other than BOM required for fulfilment for your testing system will be extra.",
+                "Our offer is strictly as per BOM. If any additional equipment other than BOM required for fulfilment for your testing system will be extra.",
 
-    "Lodging and boarding during on-site period for commissioning engineers will be arranged by M/s Neotrafo Solutions India Private Limited.",
-  ],
-},
+                "Lodging and boarding during on-site period for commissioning engineers will be arranged by M/s Neotrafo Solutions India Private Limited.",
+            ],
+        },
     },
 };
 

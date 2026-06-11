@@ -34,6 +34,7 @@ export default function PdfHeader() {
         paddingRight: "17.7mm",
         paddingTop: "3mm",
         boxSizing: "border-box",
+        marginTop: "4mm",
       }}
     >
       {/* Logo */}
@@ -58,10 +59,11 @@ export default function PdfHeader() {
       >
         <div
           style={{
-            fontSize: "18px",
+            fontSize: "20px",
             fontWeight: 700,
-            color: "#111827",
+            color: "#000000",
             fontFamily: "'Segoe UI', Arial, sans-serif",
+            fontStyle: "italic",
           }}
         >
           Techno-commercial
@@ -69,12 +71,13 @@ export default function PdfHeader() {
 
         <div
           style={{
-            fontSize: "13px",
-            fontWeight: 600,
+            fontSize: "20px",
+            fontWeight: 700,
             fontStyle: "italic",
-            color: "#374151",
+            color: "#000000",
             marginTop: "2px",
             fontFamily: "'Segoe UI', Arial, sans-serif",
+            fontStyle: "italic",
           }}
         >
           Proposal

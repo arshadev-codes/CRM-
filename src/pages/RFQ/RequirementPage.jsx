@@ -67,7 +67,7 @@ export default function RequirementPage() {
               Configure proposal requirement page
             </p>
           </div>
-          <div className="flex gap-3">
+          {/* <div className="flex gap-3">
             <button
               onClick={() => navigate("/")}
               className="h-11 px-6 rounded-2xl border border-slate-300 bg-white hover:bg-slate-100 transition-all"
@@ -80,7 +80,7 @@ export default function RequirementPage() {
             >
               Save & Next →
             </button>
-          </div>
+          </div> */}
         </div>
       )}
 

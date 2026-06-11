@@ -10,16 +10,8 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 process.on("uncaughtException", console.error);
 process.on("unhandledRejection", console.error);
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Middleware
-// ─────────────────────────────────────────────────────────────────────────────
-
 app.use(cors({ origin: FRONTEND_URL }));
 app.use(express.json({ limit: "100mb" }));
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Browser Singleton
-// ─────────────────────────────────────────────────────────────────────────────
 
 let browserInstance = null;
 
@@ -29,10 +21,6 @@ async function getBrowser() {
       executablePath:
         "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
       headless: "new",
-      // FIX-A: Raise protocol timeout to 120 s.
-      // The default (30 s) is too short for a multi-page React app that
-      // renders 10+ A4 pages with images before setting __PROPOSAL_READY__.
-      // Every page.evaluate() / page.pdf() call shares this budget.
       protocolTimeout: 120_000,
       args: [
         "--no-sandbox",
@@ -51,10 +39,6 @@ async function getBrowser() {
   return browserInstance;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// PDF Generation
-// ─────────────────────────────────────────────────────────────────────────────
-
 async function generatePdf(printRoute, proposalData) {
   const browser = await getBrowser();
   const page = await browser.newPage();
@@ -67,15 +51,23 @@ async function generatePdf(printRoute, proposalData) {
   );
 
   try {
-    // emulateMediaType BEFORE goto — keeps @media print active
     await page.emulateMediaType("print");
-
-    // A4 viewport at 96 DPI
     await page.setViewport({ width: 794, height: 1123, deviceScaleFactor: 1 });
 
-    // Inject store data before the page loads
+    // ── KEY FIX ──────────────────────────────────────────────────────────────
+    // Log exactly what scope we are injecting so we can confirm the frontend
+    // button is sending the right value.
+    console.log(`[PDF] exportScope being injected: "${proposalData.exportScope}"`);
+    console.log(`[PDF] commercialPages keys: ${Object.keys(proposalData.commercialPages || {}).length}`);
+
+    // Inject BEFORE navigation — this is correct and working.
     await page.evaluateOnNewDocument((data) => {
       window.__PROPOSAL_INITIAL_DATA__ = data;
+
+      // ── ADDITIONAL FIX ───────────────────────────────────────────────────
+      // Also expose the exportScope on window directly so TechnicalPreview
+      // can read it with zero ambiguity, no JSON parsing, no try/catch.
+      window.__EXPORT_SCOPE__ = data.exportScope || "full";
     }, proposalData);
 
     const url = `${FRONTEND_URL}${printRoute}`;
@@ -83,52 +75,47 @@ async function generatePdf(printRoute, proposalData) {
 
     await page.goto(url, { waitUntil: "networkidle0", timeout: 60_000 });
 
-    // Fallback hydration call (safe — guarded by typeof check)
+    // Fallback hydration
     await page.evaluate((data) => {
       if (typeof window.__hydrateProposalStore__ === "function") {
         window.__hydrateProposalStore__(data);
       }
     }, proposalData);
 
-    // Wait for React + Zustand + images to signal readiness
     console.log("[PDF] Waiting for __PROPOSAL_READY__...");
     await page.waitForFunction(() => window.__PROPOSAL_READY__ === true, {
       timeout: 60_000,
       polling: 200,
     });
 
-    // FIX-B: Replace page.evaluate(setTimeout) with page.waitForTimeout().
-    // The old pattern — returning a new Promise(resolve => setTimeout(resolve))
-    // inside evaluate() — can deadlock the CDP session in newer Puppeteer
-    // because the JS microtask queue inside the isolated world never flushes
-    // the timer callback while the protocol is waiting for the call to return.
-    // page.waitForTimeout() drives the delay on the Node side, which is safe.
     console.log("[PDF] Settling repaints...");
     await new Promise((resolve) => setTimeout(resolve, 600));
-    // FIX-C: Image-wait with a per-image timeout guard.
-    // The original Promise.all had no escape hatch: a broken <img> that fires
-    // neither load nor error hangs the evaluate() call indefinitely, which
-    // eventually kills the CDP session with the ProtocolError you saw.
+
     console.log("[PDF] Verifying images...");
     await page.evaluate(async () => {
-      const timeout = (ms) =>
-        new Promise((resolve) => setTimeout(resolve, ms));
-
+      const timeout = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
       await Promise.all(
         Array.from(document.images).map((img) => {
           if (img.complete && img.naturalWidth > 0) return Promise.resolve();
           return Promise.race([
             new Promise((resolve) => {
-              img.onload = resolve;
+              img.onload  = resolve;
               img.onerror = resolve;
             }),
-            timeout(5000), // never hang longer than 5 s per image
+            timeout(5000),
           ]);
         })
       );
     });
 
-    // Generate the PDF
+    // ── CONFIRM what the browser actually rendered ───────────────────────────
+    const renderedScope = await page.evaluate(() => window.__EXPORT_SCOPE__);
+    const commercialVisible = await page.evaluate(() => {
+      return !!document.querySelector(".commercial-pages-group");
+    });
+    console.log(`[PDF] Browser __EXPORT_SCOPE__: "${renderedScope}"`);
+    console.log(`[PDF] commercial-pages-group in DOM: ${commercialVisible}`);
+
     const pdfBuffer = await page.pdf({
       format: "A4",
       printBackground: true,
@@ -145,10 +132,6 @@ async function generatePdf(printRoute, proposalData) {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Routes
-// ─────────────────────────────────────────────────────────────────────────────
-
 app.post("/api/export/technical", async (req, res) => {
   try {
     const { proposalData } = req.body;
@@ -156,10 +139,10 @@ app.post("/api/export/technical", async (req, res) => {
       return res.status(400).json({ message: "proposalData is required" });
 
     console.log("[PDF] Technical export started...");
+    console.log(`[PDF] Received exportScope: "${proposalData.exportScope}"`);
+
     const pdfBuffer = await generatePdf("/print/technical", proposalData);
-    const filename = `Technical-Proposal-${
-      proposalData.meta?.proposalNumber || "Draft"
-    }.pdf`;
+    const filename  = `Technical-Proposal-${proposalData.meta?.proposalNumber || "Draft"}.pdf`;
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
@@ -180,9 +163,7 @@ app.post("/api/export/commercial", async (req, res) => {
       return res.status(400).json({ message: "proposalData is required" });
 
     const pdfBuffer = await generatePdf("/print/commercial", proposalData);
-    const filename = `Commercial-Proposal-${
-      proposalData.meta?.proposalNumber || "Draft"
-    }.pdf`;
+    const filename  = `Commercial-Proposal-${proposalData.meta?.proposalNumber || "Draft"}.pdf`;
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
@@ -201,9 +182,7 @@ app.post("/api/export/full", async (req, res) => {
       return res.status(400).json({ message: "proposalData is required" });
 
     const pdfBuffer = await generatePdf("/print/full", proposalData);
-    const filename = `Full-Proposal-${
-      proposalData.meta?.proposalNumber || "Draft"
-    }.pdf`;
+    const filename  = `Full-Proposal-${proposalData.meta?.proposalNumber || "Draft"}.pdf`;
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
@@ -216,10 +195,6 @@ app.post("/api/export/full", async (req, res) => {
 });
 
 app.get("/health", (_req, res) => res.json({ status: "ok" }));
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Shutdown
-// ─────────────────────────────────────────────────────────────────────────────
 
 process.on("SIGTERM", async () => {
   if (browserInstance) await browserInstance.close();

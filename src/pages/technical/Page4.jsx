@@ -232,7 +232,7 @@ export default function Page4() {
           })}
         </div>
 
-        {/* PAGE NAVIGATION - Hide in print mode */}
+        {/* PAGE NAVIGATION - Hide in print mode
         {!isPrintMode && (
           <div className="flex justify-between items-center mt-12">
             <button
@@ -249,7 +249,7 @@ export default function Page4() {
               Next Page →
             </button>
           </div>
-        )}
+        )} */}
 
         {/* FOOTER */}
         <div className="absolute bottom-8 left-[70px] right-[70px] flex justify-between items-end">

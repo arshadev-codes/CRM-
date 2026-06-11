@@ -319,7 +319,7 @@ export default function Page12() {
         </div>
 
         {/* NAVIGATION */}
-        <div className="flex justify-between items-center mt-16">
+        {/* <div className="flex justify-between items-center mt-16">
           <button
             onClick={() => navigate("/technical/page11")}
             className="px-8 py-4 rounded-full border border-[#0d4c7f] text-[#0d4c7f] hover:bg-[#0d4c7f] hover:text-white text-[14px] font-semibold transition-all duration-300"
@@ -333,7 +333,7 @@ export default function Page12() {
           >
             Commercial Offer →
           </button>
-        </div>
+        </div> */}
 
         {/* FOOTER */}
         <div className="mt-20 flex justify-between items-end">

@@ -24,9 +24,9 @@ export default function TechnicalPage12Pdf() {
         {/* TITLE */}
         <h2
           style={{
-            fontSize: "16px",
-            fontWeight: "700",
-            color: "#064477",
+            fontSize: "18px",
+            fontWeight: "900",
+            color: "#09385f",
             margin: "0 0 4mm 0",
             lineHeight: "1.4",
           }}
