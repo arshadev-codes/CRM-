@@ -70,9 +70,9 @@ export default function CommercialPage16Pdf() {
 
             style={{
 
-              fontSize: "18px",
+              fontSize: "18.67px",
 
-              fontWeight: 900,
+              fontWeight: 700,
               color: "#09385f",
 
             }}
@@ -105,7 +105,7 @@ export default function CommercialPage16Pdf() {
 
             tableLayout: "fixed",
 
-            fontSize: "12px",
+            fontSize: "13.67px",
 
           }}
 
@@ -183,7 +183,7 @@ export default function CommercialPage16Pdf() {
 
                   fontWeight: 700,
 
-                  fontSize: "12px",
+                  fontSize: "13.67px",
 
                 }}
 
@@ -205,7 +205,7 @@ export default function CommercialPage16Pdf() {
 
                   fontWeight: 700,
 
-                  fontSize: "12px",
+                  fontSize: "13.67px",
 
                 }}
 
@@ -227,7 +227,7 @@ export default function CommercialPage16Pdf() {
 
                   fontWeight: 700,
 
-                  fontSize: "12px",
+                  fontSize: "13.67px",
 
                 }}
 
@@ -249,7 +249,7 @@ export default function CommercialPage16Pdf() {
 
                   fontWeight: 700,
 
-                  fontSize: "12px",
+                  fontSize: "13.67px",
 
                 }}
 
@@ -281,7 +281,7 @@ export default function CommercialPage16Pdf() {
 
                     verticalAlign: "middle",
 
-                    fontSize: "12px",
+                    fontSize: "13.67px",
 
                     padding: "1.2mm",
 
@@ -327,7 +327,7 @@ export default function CommercialPage16Pdf() {
 
                     verticalAlign: "middle",
 
-                    fontSize: "12px",
+                    fontSize: "13.67px",
 
                   }}
 
@@ -349,7 +349,7 @@ export default function CommercialPage16Pdf() {
 
                     verticalAlign: "middle",
 
-                    fontSize: "12px",
+                    fontSize: "13.67px",
 
                   }}
 
@@ -429,7 +429,7 @@ export default function CommercialPage16Pdf() {
 
 
 
-        <div style={{ height: "12mm" }} />
+        <div style={{ height: "13.67mm" }} />
 
 
 
@@ -451,7 +451,7 @@ export default function CommercialPage16Pdf() {
 
             tableLayout: "fixed",
 
-            fontSize: "12px",
+            fontSize: "13.67px",
 
           }}
 
@@ -529,7 +529,7 @@ export default function CommercialPage16Pdf() {
 
                   fontWeight: 700,
 
-                  fontSize: "12px",
+                  fontSize: "13.67px",
 
                 }}
 
@@ -551,7 +551,7 @@ export default function CommercialPage16Pdf() {
 
                   fontWeight: 700,
 
-                  fontSize: "12px",
+                  fontSize: "13.67px",
 
                 }}
 
@@ -573,7 +573,7 @@ export default function CommercialPage16Pdf() {
 
                   fontWeight: 700,
 
-                  fontSize: "12px",
+                  fontSize: "13.67px",
 
                 }}
 
@@ -595,7 +595,7 @@ export default function CommercialPage16Pdf() {
 
                   fontWeight: 700,
 
-                  fontSize: "12px",
+                  fontSize: "13.67px",
 
                 }}
 
@@ -625,7 +625,7 @@ export default function CommercialPage16Pdf() {
 
                     textAlign: "center",
 
-                    fontSize: "12px",
+                    fontSize: "13.67px",
 
                     padding: "1mm",
 
@@ -647,7 +647,7 @@ export default function CommercialPage16Pdf() {
 
                     padding: "1.2mm",
 
-                    fontSize: "12px",
+                    fontSize: "13.67px",
 
                   }}
 
@@ -667,7 +667,7 @@ export default function CommercialPage16Pdf() {
 
                     textAlign: "center",
 
-                    fontSize: "12px",
+                    fontSize: "13.67px",
 
                   }}
 
@@ -687,7 +687,7 @@ export default function CommercialPage16Pdf() {
 
                     textAlign: "center",
 
-                    fontSize: "12px",
+                    fontSize: "13.67px",
 
                   }}
 

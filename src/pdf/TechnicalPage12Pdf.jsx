@@ -24,8 +24,8 @@ export default function TechnicalPage12Pdf() {
         {/* TITLE */}
         <h2
           style={{
-            fontSize: "18px",
-            fontWeight: "900",
+            fontSize: "18.67px",
+            fontWeight: "700",
             color: "#09385f",
             margin: "0 0 4mm 0",
             lineHeight: "1.4",
@@ -37,9 +37,9 @@ export default function TechnicalPage12Pdf() {
         {/* DESCRIPTION */}
         <div
           style={{
-            fontSize: "13px",
+            fontSize: "14.67px",
             color: "#d10000",
-            lineHeight: "1.5",
+            lineHeight: "1.45",
             marginBottom: "8mm",
             textAlign: "justify",
             fontWeight: "600",
@@ -84,8 +84,8 @@ export default function TechnicalPage12Pdf() {
 
             <div
               style={{
-                fontSize: "13px",
-                fontWeight: "800",
+                fontSize: "14.67px",
+                fontWeight: "700",
                 color: "#000",
               }}
             >
@@ -94,8 +94,8 @@ export default function TechnicalPage12Pdf() {
 
             <div
               style={{
-                fontSize: "13px",
-                fontWeight: "800",
+                fontSize: "14.67px",
+                fontWeight: "700",
                 color: "#000",
               }}
             >
@@ -104,8 +104,8 @@ export default function TechnicalPage12Pdf() {
 
             <div
               style={{
-                fontSize: "13px",
-                fontWeight: "800",
+                fontSize: "14.67px",
+                fontWeight: "700",
                 color: "#c00000",
                 marginTop: "1mm",
               }}
@@ -120,7 +120,7 @@ export default function TechnicalPage12Pdf() {
           <div
             style={{
               textAlign: "center",
-              fontSize: "13px",
+              fontSize: "14.67px",
               color: "#64748b",
               fontStyle: "italic",
               marginBottom: "6mm",
@@ -133,7 +133,7 @@ export default function TechnicalPage12Pdf() {
         {/* LAYOUT TITLE */}
         <div
           style={{
-            fontSize: "13px",
+            fontSize: "14.67px",
             fontWeight: "700",
             fontStyle: "italic",
             marginBottom: "4mm",

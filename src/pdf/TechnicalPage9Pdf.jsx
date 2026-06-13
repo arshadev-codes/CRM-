@@ -40,7 +40,7 @@ export default function TechnicalPage9Pdf() {
           <>
             <h3
               style={{
-                fontSize: "13.5px",
+                fontSize: "14.67px",
                 fontWeight: "700",
                 color: "#000000",
                 margin: "0 0 3mm 0",
@@ -51,8 +51,8 @@ export default function TechnicalPage9Pdf() {
 
             <p
               style={{
-                fontSize: "13px",
-                lineHeight: "1.55",
+                fontSize: "14.67px",
+                lineHeight: "1.45",
                 textAlign: "justify",
                 margin: "0 0 5mm 0",
                 color: "#000000",
@@ -68,7 +68,7 @@ export default function TechnicalPage9Pdf() {
           <>
             <h3
               style={{
-                fontSize: "13.5px",
+                fontSize: "14.67px",
                 fontWeight: "700",
                 color: "#000000",
                 margin: "0 0 3mm 0",
@@ -79,8 +79,8 @@ export default function TechnicalPage9Pdf() {
 
             <p
               style={{
-                fontSize: "13px",
-                lineHeight: "1.55",
+                fontSize: "14.67px",
+                lineHeight: "1.45",
                 textAlign: "justify",
                 margin: "0 0 5mm 0",
                 color: "#000000",
@@ -143,7 +143,7 @@ export default function TechnicalPage9Pdf() {
           <>
             <h3
               style={{
-                fontSize: "13.5px",
+                fontSize: "14.67px",
                 fontWeight: "700",
                 color: "#000000",
                 margin: "0 0 3mm 0",
@@ -154,8 +154,8 @@ export default function TechnicalPage9Pdf() {
 
             <p
               style={{
-                fontSize: "13px",
-                lineHeight: "1.55",
+                fontSize: "14.67px",
+                lineHeight: "1.45",
                 textAlign: "justify",
                 color: "#000000",
                 margin: 0,

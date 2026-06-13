@@ -59,11 +59,11 @@ export default function CommercialPage18Pdf() {
         }}
       >
         {/* PAGE TITLE */}
-        <div style={{ marginBottom: "4mm" }}>
+        <div style={{ marginBottom: "1.5mm" }}>
           <div
             style={{
-              fontSize: "18px",
-              fontWeight: 900,
+              fontSize: "18.67px",
+              fontWeight: 700,
               color: "#09385f",
               textTransform: "uppercase",
               letterSpacing: "0.3px",
@@ -81,7 +81,7 @@ export default function CommercialPage18Pdf() {
             width: "100%",
             borderCollapse: "collapse",
             tableLayout: "fixed",
-            fontSize: "13.5px",
+            fontSize: "14.67px",
             marginBottom: "4mm",
           }}
         >

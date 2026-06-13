@@ -65,7 +65,7 @@ export default function RequirementPdf() {
   const sectionHeader = {
   backgroundColor: "#dfeaf6",
   padding: "6px 10px",
-  fontSize: "13.5px",
+  fontSize: "16px",
   fontWeight: "700",
   fontStyle: "italic",
   color: "#000000",
@@ -92,9 +92,9 @@ export default function RequirementPdf() {
         {/* ── Intro paragraph ───────────────────────────────────── */}
         <p
           style={{
-            fontSize: "13px",
+            fontSize: "14.67px",
             color: "#000000",
-            lineHeight: "1.75",
+            lineHeight: "1.45",
             textAlign: "justify",
             margin: "0 0 14px 0",
           }}
@@ -126,9 +126,9 @@ export default function RequirementPdf() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "8mm 1fr",
-                fontSize: "13px",
+                fontSize: "14.67px",
                 color: "#000000",
-                lineHeight: "1.9",
+                lineHeight: "1.45",
                 paddingBottom: "3px",
               }}
             >
@@ -141,7 +141,7 @@ export default function RequirementPdf() {
         {/* ── Note ─────────────────────────────────────────────── */}
         <div
           style={{
-            fontSize: "13.5px",
+            fontSize: "14.67px",
             color: "#000000",
             fontWeight: "700",
             marginBottom: "18px",
@@ -161,9 +161,9 @@ export default function RequirementPdf() {
         {/* ── Proposed solution paragraph ───────────────────────── */}
         <p
           style={{
-            fontSize: "13px",
+            fontSize: "14.67px",
             color: "#000000",
-            lineHeight: "1.75",
+            lineHeight: "1.45",
             textAlign: "justify",
             margin: "0",
           }}

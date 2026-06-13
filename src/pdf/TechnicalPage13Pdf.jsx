@@ -52,14 +52,13 @@ export default function TechnicalPage13Pdf() {
         style={{
           display: "flex",
           flexDirection: "column",
-          minHeight: "235mm",
         }}
       >
         {/* TITLE */}
         <h2
           style={{
-            fontSize: "18px",
-            fontWeight: "900",
+            fontSize: "18.67px",
+            fontWeight: "700",
             color: "#09385f",
             marginBottom: "4mm",
           }}
@@ -97,7 +96,7 @@ export default function TechnicalPage13Pdf() {
             <div
               style={{
                 marginTop: "1mm",
-                fontSize: "13.5px",
+                fontSize: "14.67px",
                 fontStyle: "italic",
               }}
             >
@@ -126,7 +125,7 @@ export default function TechnicalPage13Pdf() {
             <div
               style={{
                 marginTop: "1mm",
-                fontSize: "13.5px",
+                fontSize: "14.67px",
                 fontStyle: "italic",
               }}
             >
@@ -157,7 +156,7 @@ export default function TechnicalPage13Pdf() {
           <div
             style={{
               marginTop: "1mm",
-              fontSize: "13.5px",
+              fontSize: "14.67px",
               fontStyle: "italic",
             }}
           >
@@ -168,7 +167,7 @@ export default function TechnicalPage13Pdf() {
         {/* TESTS */}
         <div
           style={{
-            fontSize: "13px",
+            fontSize: "14.67px",
             lineHeight: "1.45",
             paddingLeft: "10mm",
             paddingRight: "10mm",
@@ -211,7 +210,7 @@ export default function TechnicalPage13Pdf() {
             marginTop: "auto",
             paddingLeft: "10mm",
             paddingRight: "10mm",
-            fontSize: "13px",
+            fontSize: "14.67px",
             fontStyle: "italic",
           }}
         >

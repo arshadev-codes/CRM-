@@ -36,7 +36,7 @@ export default function TechnicalPage10Pdf() {
           <>
             <h3
               style={{
-                fontSize: "13.5px",
+                fontSize: "14.67px",
                 fontWeight: "700",
                 color: "#000000",
                 margin: "0 0 3mm 0",
@@ -47,8 +47,8 @@ export default function TechnicalPage10Pdf() {
 
             <p
               style={{
-                fontSize: "13px",
-                lineHeight: "1.6",
+                fontSize: "14.67px",
+                lineHeight: "1.45",
                 textAlign: "justify",
                 color: "#000000",
                 margin: "0 0 6mm 0",
@@ -64,7 +64,7 @@ export default function TechnicalPage10Pdf() {
           <>
             <h3
               style={{
-                fontSize: "13.5px",
+                fontSize: "14.67px",
                 fontWeight: "700",
                 color: "#000000",
                 margin: "0 0 3mm 0",
@@ -75,8 +75,8 @@ export default function TechnicalPage10Pdf() {
 
             <p
               style={{
-                fontSize: "13px",
-                lineHeight: "1.6",
+                fontSize: "14.67px",
+                lineHeight: "1.45",
                 textAlign: "justify",
                 color: "#000000",
                 margin: "0 0 8mm 0",
@@ -116,7 +116,7 @@ export default function TechnicalPage10Pdf() {
                   <div
                     style={{
                       textAlign: "center",
-                      fontSize: "13px",
+                      fontSize: "14.67px",
                       fontStyle: "italic",
                       marginTop: "2mm",
                     }}
@@ -145,7 +145,7 @@ export default function TechnicalPage10Pdf() {
                   <div
                     style={{
                       textAlign: "center",
-                      fontSize: "13px",
+                      fontSize: "14.67px",
                       fontStyle: "italic",
                       marginTop: "2mm",
                     }}

@@ -6,12 +6,12 @@ import { useProposalStore } from "../store/proposalStore";
 function TcSection({ section }) {
   return (
     <div style={{ marginBottom: "2.8mm" }}>
-      <div style={{ fontWeight: 700, fontSize: "13.5px", marginBottom: "0.8mm" }}>
+      <div style={{ fontWeight: 700, fontSize: "14.67px", marginBottom: "0.8mm" }}>
         {section.number}&nbsp;{section.title}
       </div>
 
       {section.body && (
-        <div style={{ fontSize: "13.5px", color: "#000000", lineHeight: "1.45", marginBottom: "0.8mm" }}>
+        <div style={{ fontSize: "14.67px", color: "#000000", lineHeight: "1.45", marginBottom: "0.8mm" }}>
           {section.body}
         </div>
       )}
@@ -19,7 +19,7 @@ function TcSection({ section }) {
       {section.bullets && (
         <div style={{ paddingLeft: "3mm", marginBottom: "0.5mm" }}>
           {section.bullets.map((b, i) => (
-            <div key={i} style={{ fontSize: "13.5px", color: "#000000", lineHeight: "1.45", marginBottom: "0.3mm" }}>
+            <div key={i} style={{ fontSize: "14.67px", color: "#000000", lineHeight: "1.45", marginBottom: "0.3mm" }}>
               &bull;&nbsp;{b}
             </div>
           ))}
@@ -27,7 +27,7 @@ function TcSection({ section }) {
       )}
 
       {section.subsections && section.subsections.map((sub, i) => (
-        <div key={i} style={{ marginBottom: "1mm", fontSize: "13.5px", color: "#000000", lineHeight: "1.45" }}>
+        <div key={i} style={{ marginBottom: "1mm", fontSize: "14.67px", color: "#000000", lineHeight: "1.45" }}>
           <span style={{ fontWeight: 600 }}>{sub.number}&nbsp;</span>
           {sub.body}
           {sub.bullets && (
@@ -69,7 +69,7 @@ export default function CommercialPage22Pdf() {
           height: "220mm",
           display: "flex",
           flexDirection: "column",
-          marginTop: "18mm",
+          marginTop: "5mm",
         }}
       >
         <div style={{ flex: 1, overflow: "hidden" }}>

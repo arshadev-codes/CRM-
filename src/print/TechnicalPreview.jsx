@@ -32,16 +32,12 @@ import CommercialPage24Pdf from "../pdf/CommercialPage24Pdf";
 // ─── Synchronous scope read ───────────────────────────────────────────────────
 // window.__EXPORT_SCOPE__ is set by evaluateOnNewDocument in the backend
 // BEFORE this script ever executes — so this is always available on first read.
-// window.__PROPOSAL_INITIAL_DATA__.exportScope is the fallback.
-// Both are set before navigation, so no async needed.
 function readScope() {
   try {
-    // Primary: direct flag set by backend
     if (window.__EXPORT_SCOPE__) {
       console.log("[TechnicalPreview] scope from __EXPORT_SCOPE__:", window.__EXPORT_SCOPE__);
       return window.__EXPORT_SCOPE__;
     }
-    // Fallback: read from the full data blob
     const scope = window.__PROPOSAL_INITIAL_DATA__?.exportScope;
     console.log("[TechnicalPreview] scope from __PROPOSAL_INITIAL_DATA__:", scope);
     return scope === "technical" ? "technical" : "full";
@@ -54,15 +50,11 @@ export default function TechnicalPreview() {
   const [isHydrated, setIsHydrated]   = useState(false);
   const [dataVersion, setDataVersion] = useState(0);
 
-  // useState(fn) — fn runs ONCE synchronously on first render, in the browser,
-  // at which point evaluateOnNewDocument has already set window.__EXPORT_SCOPE__.
   const [exportScope] = useState(readScope);
 
   const rfqCover        = useProposalStore((state) => state.rfqCover) || {};
   const hasProposalData = rfqCover && Object.keys(rfqCover).length > 0 && !!rfqCover.companyName;
 
-  // includeCommercial is derived BEFORE the loading screen — so the DOM
-  // is correct from the very first render, not after a state update.
   const includeCommercial = exportScope !== "technical";
 
   console.log("[TechnicalPreview] exportScope:", exportScope, "| includeCommercial:", includeCommercial);
@@ -107,7 +99,7 @@ export default function TechnicalPreview() {
 
   if (!isHydrated) {
     return (
-      <div className="p-6 font-sans text-slate-400">
+      <div style={{ padding: "24px", fontFamily: "sans-serif", color: "#94a3b8" }}>
         Loading document workspace...
       </div>
     );
@@ -115,11 +107,17 @@ export default function TechnicalPreview() {
 
   return (
     <PrintLayout>
+      {/*
+       * Print-specific overrides.
+       * NOTE: We do NOT redefine .pdf-page width/padding here — those live
+       * exclusively in PrintLayout so there is only one source of truth.
+       */}
       <style>{`
         @page {
           size: A4;
           margin: 0mm !important;
         }
+
         @media print {
           * {
             -webkit-print-color-adjust: exact !important;
@@ -127,45 +125,28 @@ export default function TechnicalPreview() {
             color-adjust: exact !important;
           }
           html, body {
-            margin: 0mm !important;
-            padding: 0mm !important;
+            margin: 0 !important;
+            padding: 0 !important;
             background: #ffffff !important;
           }
         }
-        .pdf-strict-page {
-          position: relative !important;
-          width: 210mm !important;
-          height: 297mm !important;
-          max-height: 297mm !important;
-          min-height: 297mm !important;
-          box-sizing: border-box !important;
-          overflow: hidden !important;
-          background: #ffffff !important;
-          padding-top: 15mm !important;
-          padding-bottom: 20mm !important;
-          padding-left: 15mm !important;
-          padding-right: 15mm !important;
-        }
-        @media print {
-          .pdf-strict-page {
-            page-break-after: always !important;
-            break-after: page !important;
-            box-shadow: none !important;
-            margin: 0 !important;
-          }
-        }
+
+        /*
+         * Page wrapper for every page inside the subsequent-pages div.
+         * Width is NOT set here — it inherits from .pdf-page in PrintLayout.
+         * This class only handles print page-break behaviour.
+         */
         .inner-pdf-page-wrapper {
-          background: #ffffff !important;
-          width: 210mm !important;
-          box-sizing: border-box !important;
-          display: block !important;
+          display: block;
         }
+
         @media print {
           .inner-pdf-page-wrapper {
             page-break-inside: avoid !important;
             break-inside: avoid !important;
-            display: block !important;
           }
+
+          /* Last page in the document — no trailing page break */
           .subsequent-technical-pdf-pages
             > .inner-pdf-page-wrapper:last-child,
           .subsequent-technical-pdf-pages
@@ -177,6 +158,7 @@ export default function TechnicalPreview() {
         }
       `}</style>
 
+      {/* Cover page — RFQPdf renders its own .pdf-page root element */}
       <RFQPdf />
 
       <div

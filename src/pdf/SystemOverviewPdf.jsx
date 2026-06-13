@@ -67,9 +67,9 @@ export default function SystemOverviewPdf() {
         {/* SegoeUI-Bold 13pt = ~17px CSS; color #1e3a8a (dark blue) */}
         <h2
           style={{
-            fontSize: "18px",
+            fontSize: "18.67px",
             color: "#09385f",
-            fontWeight: "900",
+            fontWeight: "700",
             margin: "0 0 8px 0",
              textTransform: "uppercase",
             letterSpacing: "0.3px",
@@ -82,7 +82,7 @@ export default function SystemOverviewPdf() {
         {/* SegoeUI-BoldItalic 10.08pt */}
         <p
           style={{
-            fontSize: "13.5px",
+            fontSize: "14.67px",
             fontWeight: "700",
             fontStyle: "italic",
             color: "#000000",
@@ -95,9 +95,9 @@ export default function SystemOverviewPdf() {
         {/* ── Intro body paragraph ──────────────────────────────── */}
         <p
           style={{
-            fontSize: "13px",
+            fontSize: "14.67px",
             color: "#000000",
-            lineHeight: "1.55",
+            lineHeight: "1.45",
             textAlign: "justify",
             margin: "0 0 16px 0",
           }}
@@ -111,7 +111,7 @@ export default function SystemOverviewPdf() {
         <p style={{ margin: "0 0 6px 0" }}>
           <span
             style={{
-              fontSize: "13.5px",
+              fontSize: "14.67px",
               fontWeight: "700",
               color: "#000000",
             }}
@@ -121,9 +121,9 @@ export default function SystemOverviewPdf() {
         </p>
         <p
           style={{
-            fontSize: "13px",
+            fontSize: "14.67px",
             color: "#000000",
-            lineHeight: "1.55",
+            lineHeight: "1.45",
             textAlign: "justify",
             margin: "0 0 12px 0",
           }}
@@ -138,7 +138,7 @@ export default function SystemOverviewPdf() {
         {/* ── Key Highlights heading ────────────────────────────── */}
         <p
           style={{
-            fontSize: "13.5px",
+            fontSize: "14.67px",
             fontWeight: "700",
             fontStyle: "italic",
             color: "#000000",
@@ -161,7 +161,7 @@ export default function SystemOverviewPdf() {
               <p style={{ margin: "0 0 6px 0" }}>
                 <span
                   style={{
-                    fontSize: "13px",
+                    fontSize: "14.67px",
                     fontWeight: "700",
                     color: "#000000",
                   }}
@@ -171,9 +171,9 @@ export default function SystemOverviewPdf() {
               </p>
               <p
                 style={{
-                  fontSize: "13px",
+                  fontSize: "14.67px",
                   color: "#000000",
-                  lineHeight: "1.55",
+                  lineHeight: "1.45",
                   textAlign: "justify",
                   margin: "0",
                 }}

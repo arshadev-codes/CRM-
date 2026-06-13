@@ -22,7 +22,6 @@ export default function CommercialPage14Pdf() {
         style={{
           display: "flex",
           flexDirection: "column",
-          minHeight: "228mm",
         }}
       >
         {/* TITLE */}
@@ -33,9 +32,10 @@ export default function CommercialPage14Pdf() {
         >
           <div
             style={{
-              fontSize: "18px",
-              fontWeight: 900,
+              fontSize: "18.67px",
+              fontWeight: 700,
               color: "#09385f",
+              marginBottom: "4.5mm",
             }}
           >
             {pageData.title}
@@ -49,7 +49,7 @@ export default function CommercialPage14Pdf() {
     width: "100%",
     borderCollapse: "collapse",
     tableLayout: "fixed",
-    fontSize: "13px",
+    fontSize: "12.5px",
   }}
 >
   <colgroup>
@@ -68,7 +68,7 @@ export default function CommercialPage14Pdf() {
           color: "#fff",
           border: "1px solid #8d8d8d",
           padding: "1.2mm",
-          fontSize: "13px",
+          fontSize: "12.5px",
           fontWeight: 700,
           fontStyle: "italic",
           textAlign: "center",
@@ -87,7 +87,7 @@ export default function CommercialPage14Pdf() {
         style={{
           border: "1px solid #b6b6b6",
           padding: "1mm",
-          fontSize: "13px",
+          fontSize: "12.5px",
           fontWeight: 700,
         }}
       >
@@ -98,7 +98,7 @@ export default function CommercialPage14Pdf() {
         style={{
           border: "1px solid #b6b6b6",
           padding: "1mm",
-          fontSize: "13px",
+          fontSize: "12.5px",
           fontWeight: 700,
         }}
       >
@@ -109,7 +109,7 @@ export default function CommercialPage14Pdf() {
         style={{
           border: "1px solid #b6b6b6",
           padding: "1mm",
-          fontSize: "13px",
+          fontSize: "12.5px",
           fontWeight: 700,
         }}
       >
@@ -120,7 +120,7 @@ export default function CommercialPage14Pdf() {
         style={{
           border: "1px solid #b6b6b6",
           padding: "1mm",
-          fontSize: "13px",
+          fontSize: "12.5px",
           fontWeight: 700,
         }}
       >
@@ -138,7 +138,7 @@ export default function CommercialPage14Pdf() {
             textAlign: "center",
             verticalAlign: "middle",
             fontWeight: 700,
-            fontSize: "13px",
+            fontSize: "12.5px",
             padding: "1mm",
           }}
         >
@@ -165,7 +165,7 @@ export default function CommercialPage14Pdf() {
 
           <div
             style={{
-              fontSize: "12px",
+              fontSize: "12.5px",
               lineHeight: "1.25",
             }}
           >
@@ -178,7 +178,7 @@ export default function CommercialPage14Pdf() {
             border: "1px solid #b6b6b6",
             textAlign: "center",
             verticalAlign: "middle",
-            fontSize: "13px",
+            fontSize: "12.5px",
           }}
         >
           {item.quantity}
@@ -189,7 +189,7 @@ export default function CommercialPage14Pdf() {
             border: "1px solid #b6b6b6",
             textAlign: "center",
             verticalAlign: "middle",
-            fontSize: "13px",
+            fontSize: "12.5px",
           }}
         >
           {item.price}

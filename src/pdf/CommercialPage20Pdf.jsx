@@ -31,14 +31,14 @@ export default function CommercialPage20Pdf() {
           height: "220mm",
           display: "flex",
           flexDirection: "column",
-          marginTop: "18mm",
+          marginTop: "5mm",
         }}
       >
         {/* TITLE */}
         <div
           style={{
-            fontSize: "18px",
-            fontWeight: 900,
+            fontSize: "18.67px",
+            fontWeight: 700,
             color: "#09385f",
             textTransform: "uppercase",
             letterSpacing: "0.3px",
@@ -49,7 +49,7 @@ export default function CommercialPage20Pdf() {
         </div>
 
         {/* INTRO */}
-        <div style={{ fontSize: "13.5px", color: "#000000", marginBottom: "3mm" }}>
+        <div style={{ fontSize: "14.67px", color: "#000000", marginBottom: "3mm" }}>
           {pageData.intro}
         </div>
 
@@ -59,7 +59,7 @@ export default function CommercialPage20Pdf() {
             width: "100%",
             borderCollapse: "collapse",
             tableLayout: "fixed",
-            fontSize: "13px",
+            fontSize: "14.67px",
             marginBottom: "4mm",
           }}
         >
@@ -113,7 +113,7 @@ export default function CommercialPage20Pdf() {
         </table>
 
         {/* TERMS BLOCKS — match exact visual layout from screenshot */}
-        <div style={{ fontSize: "13.5px", color: "#000000", lineHeight: "1.5" }}>
+        <div style={{ fontSize: "14.67px", color: "#000000", lineHeight: "1.5" }}>
 
           {/* Packing */}
           <div style={{ marginBottom: "2.5mm" }}>

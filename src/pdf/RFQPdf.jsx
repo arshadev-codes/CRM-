@@ -50,44 +50,50 @@ export default function RFQPdf() {
   const revisionDate = rfqCover?.revisionDate || "24.11.2025";
   const contactAddress = rfqCover?.address || "Electrosoft Automation Pvt. Ltd.,\nS7-1&2, Jai Matadi Compound, Thane-Bhiwandi Road,\nKalher, Thane District, Maharashtra, India – 421302\nTel. No. +91 8692 888 444";
 
-  // Shared table cell style
   const labelCell = {
-    padding: "5px 7px",
+    padding: "4px 6px",
     fontWeight: "700",
-    fontSize: "14px",
+    fontSize: "14.67px",
     color: "#000000",
-    borderRight: "1px solid #9ca3af",
-    width: "42mm",
-    verticalAlign: "top",
+    borderRight: "1px solid #808080",
+    width: "45mm",
+    verticalAlign: "middle",
+    lineHeight: "1.3",
   };
+
   const valueCell = {
-    padding: "5px 7px",
-    fontSize: "13px",
-    fontStyle: "italic",
+    padding: "4px 6px",
+    fontSize: "14.67px",
     color: "#000000",
-    verticalAlign: "top",
+    verticalAlign: "middle",
+    lineHeight: "1.3",
   };
-  const rowBorder = { borderBottom: "1px solid #767a82" };
+
+  const rowBorder = {
+    borderBottom: "1px solid #808080",
+  };
+
   const tableStyle = {
-    width: "100%",
+    width: "155mm",
     borderCollapse: "collapse",
-    border: "1px solid #9ca3af",
-    fontSize: "13px",
+    border: "1px solid #808080",
+    fontSize: "14.67px",
     marginBottom: "0",
+    margin: "0 auto",
+    tableLayout: "fixed",   /* prevents table from growing beyond parent width */
   };
 
   return (
     <div className="pdf-page">
       <PdfHeader />
 
-      {/* Content area — matches original page layout precisely */}
-     <div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "230mm",
-  }}
->
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "230mm",
+        }}
+      >
 
         {/* ── TABLE 1: To / Company / Subject / Reference / Date ── */}
         <table style={tableStyle}>
@@ -130,9 +136,8 @@ export default function RFQPdf() {
               <td style={valueCell}>{checkedBy}</td>
             </tr>
             <tr style={rowBorder}>
-              <td style={{ ...labelCell }}>Revision no. &amp; date</td>
+              <td style={labelCell}>Revision no. &amp; date</td>
               <td style={{ ...valueCell, fontStyle: "normal" }}>
-                {/* Two-column sub-layout for revision: Rev.0 | 24.11.2025 */}
                 <div style={{ display: "grid", gridTemplateColumns: "1fr auto" }}>
                   <span>{revision}</span>
                   <span>{revisionDate}</span>
@@ -156,9 +161,9 @@ export default function RFQPdf() {
         {/* ── Dear Sir + body paragraphs ────────────────────────── */}
         <div
           style={{
-            fontSize: "13px",
+            fontSize: "14.67px",
             color: "#000000",
-            lineHeight: "1.55",
+            lineHeight: "1.45",
           }}
         >
           <p style={{ margin: "0 0 8px 0" }}>Dear Sir,</p>
@@ -184,10 +189,21 @@ export default function RFQPdf() {
         <div style={{ height: "18mm" }} />
 
         {/* ── Signature (left) + Confidentiality box (right) ────── */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", alignItems: "start", marginBottom: "4mm" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "16px",
+            alignItems: "start",
+            marginBottom: "4mm",
+            /* Ensure the grid never exceeds the page content width */
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        >
 
           {/* Left: Sincerely block */}
-          <div style={{ fontSize: "13px", color: "#000000", lineHeight: "1.6" }}>
+          <div style={{ fontSize: "14.67px", color: "#000000", lineHeight: "1.6" }}>
             <div>Sincerely,</div>
             <div style={{ fontStyle: "italic", fontWeight: "700" }}>{preparedBy}</div>
             <div>General Manager</div>
@@ -195,16 +211,21 @@ export default function RFQPdf() {
             <div>+91 9089 888 444</div>
           </div>
 
-          {/* Right: Red confidentiality notice box */}
+          {/* Right: Red confidentiality notice box
+              ── width / height are intentionally NOT set here.
+              ── The grid column (1fr) constrains it automatically.       */}
           <div
             style={{
-              border: "2px solid #da0000",
+              border: "1px solid #da0000",
               padding: "6px 8px",
-              fontSize: "9.5px",
+              fontSize: "12.5px",
               color: "#da0000",
-              fontWeight: "800",
+              fontWeight: "500",
               textAlign: "center",
               lineHeight: "1.5",
+              boxSizing: "border-box",
+              /* width: "95mm"  ← REMOVED — this was forcing the page wider */
+              /* height: "32mm" ← REMOVED — let content determine height    */
             }}
           >
             This techno-commercial proposal, including all pages, literature,

@@ -31,7 +31,7 @@ export default function TechnicalPage8Pdf() {
         {/* SECTION 5 TITLE */}
         <h2
           style={{
-            fontSize: "13.5px",
+            fontSize: "14.67px",
             fontWeight: "700",
             color: "#000000",
             margin: "0 0 8px 0",
@@ -44,8 +44,8 @@ export default function TechnicalPage8Pdf() {
         {/* SECTION 5 DESCRIPTION */}
         <p
           style={{
-            fontSize: "13px",
-            lineHeight: "1.55",
+            fontSize: "14.67px",
+            lineHeight: "1.45",
             textAlign: "justify",
             color: "#000000",
             margin: "0 0 8mm 0",
@@ -79,7 +79,7 @@ export default function TechnicalPage8Pdf() {
         {/* SECTION 6 TITLE */}
         <h2
           style={{
-            fontSize: "13.5px",
+            fontSize: "14.67px",
             fontWeight: "700",
             color: "#000000",
             margin: "0 0 8px 0",
@@ -92,8 +92,8 @@ export default function TechnicalPage8Pdf() {
         {/* SECTION 6 DESCRIPTION */}
         <p
           style={{
-            fontSize: "13px",
-            lineHeight: "1.55",
+            fontSize: "14.67px",
+            lineHeight: "1.45",
             textAlign: "justify",
             color: "#000000",
             margin: "0 0 8mm 0",

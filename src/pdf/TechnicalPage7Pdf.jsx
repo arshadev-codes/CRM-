@@ -35,7 +35,7 @@ export default function TechnicalPage7Pdf() {
         {/* TITLE */}
         <h2
           style={{
-            fontSize: "13.5px",
+            fontSize: "14.67px",
             fontWeight: "700",
             color: "#000000",
             margin: "0 0 8px 0",
@@ -50,8 +50,8 @@ export default function TechnicalPage7Pdf() {
         {/* DESCRIPTION */}
         <p
           style={{
-            fontSize: "13px",
-            lineHeight: "1.55",
+            fontSize: "14.67px",
+            lineHeight: "1.45",
             color: "#000000",
             textAlign: "justify",
             margin: "0 0 8mm 0",

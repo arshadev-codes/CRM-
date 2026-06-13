@@ -21,15 +21,15 @@ export default function CommercialPage17Pdf() {
   // Shared cell styles
   const headerCell = {
     border: "1px solid #b6b6b6",
-    padding: "0.8mm 1mm",
+    padding: "0.8mm ",
     fontWeight: 700,
     textAlign: "center",
-    fontSize: "11px",
+    fontSize: "13.67px",
   };
   const bodyCell = (extra = {}) => ({
     border: "1px solid #b6b6b6",
-    padding: "0.6mm 1.5mm",
-    fontSize: "11px",
+    // padding: "0.6mm ",
+    fontSize: "13.67px",
     color: "#000",
     ...extra,
   });
@@ -58,13 +58,13 @@ export default function CommercialPage17Pdf() {
           flex: 1,
           display: "flex",
           flexDirection: "column",
-          marginTop: "4mm",
+          marginTop: "2mm",
           overflow: "hidden",
         }}
       >
         {/* PAGE TITLE */}
-        <div style={{ marginBottom: "3mm" , marginTop: "8mm"}}>
-          <div style={{ fontSize: "18px", fontWeight: 900, color: "#09385f", textTransform: "uppercase", letterSpacing: "0.3px" , marginTop: "12mm" }}>
+        <div style={{ marginBottom: "3mm" , marginTop: "0.5mm"}}>
+          <div style={{ fontSize: "18px", fontWeight: 700, color: "#09385f", textTransform: "uppercase", letterSpacing: "0.3px" , marginTop: "0.5mm" }}>
             {pageData.title || "ELECTROSOFT'S SCOPE OF SERVICES"}
           </div>
         </div>
@@ -84,8 +84,8 @@ export default function CommercialPage17Pdf() {
                 style={{
                   background: "#0b5576", color: "#fff",
                   border: "1px solid #b6b6b6",
-                  padding: "0.8mm 1mm",
-                  fontSize: "11px", fontWeight: 700, fontStyle: "italic",
+                  // padding: "0.8mm 1mm",
+                  fontSize: "13.67px", fontWeight: 700, fontStyle: "italic",
                   textAlign: "center", textTransform: "uppercase",
                 }}
               >
@@ -126,8 +126,8 @@ export default function CommercialPage17Pdf() {
                 style={{
                   background: "#0b5576", color: "#fff",
                   border: "1px solid #b6b6b6",
-                  padding: "0.8mm 1mm",
-                  fontSize: "11px", fontWeight: 700, fontStyle: "italic",
+                  // padding: "0.8mm 1mm",
+                  fontSize: "13.67px", fontWeight: 700, fontStyle: "italic",
                   textAlign: "center", textTransform: "uppercase",
                 }}
               >
@@ -155,7 +155,7 @@ export default function CommercialPage17Pdf() {
 
         {/* ── DELIVERY SCHEDULE ── */}
         <div style={{ marginBottom: "2mm" }}>
-          <div style={{ fontSize: "14px", fontWeight: 900, color: "#09385f", textTransform: "uppercase", letterSpacing: "0.3px" }}>
+          <div style={{ fontSize: "13.67px", fontWeight: 900, color: "#09385f", textTransform: "uppercase", letterSpacing: "0.3px" }}>
             {pageData.deliveryTitle || "DELIVERY SCHEDULE"}
           </div>
         </div>
@@ -187,12 +187,12 @@ export default function CommercialPage17Pdf() {
         </table>
 
         {/* ── NOTES ── */}
-        <div style={{ fontSize: "11px", marginTop: "1mm", width: "100%" }}>
+        <div style={{ fontSize: "13.67px", marginTop: "1mm", width: "100%" }}>
           <div style={{ fontWeight: 700, fontStyle: "italic", marginBottom: "1mm", color: "#000" }}>Note:</div>
           <div style={{ display: "flex", flexDirection: "column", gap: "1.2mm", width: "100%" }}>
             {notesList.map((note, index) => (
               <div key={index} style={{ display: "flex", alignItems: "flex-start", width: "100%", lineHeight: "1.3" }}>
-                <div style={{ minWidth: "5mm", width: "5mm", textAlign: "right", paddingRight: "1.5mm", fontWeight: 600, color: "#111", flexShrink: 0 }}>
+                <div style={{ minWidth: "5mm", width: "5mm", textAlign: "right", paddingRight: "1.5mm", fontWeight: 600, color: "#13.671", flexShrink: 0 }}>
                   {index + 1}.
                 </div>
                 <div style={{ color: "#333", fontStyle: "italic", whiteSpace: "normal", wordBreak: "break-word", flex: 1 }}>

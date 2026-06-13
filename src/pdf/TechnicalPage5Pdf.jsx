@@ -34,7 +34,7 @@ export default function TechnicalPage5Pdf() {
         {introSection?.heading && (
           <h2
             style={{
-              fontSize: "13.5px",
+              fontSize: "14.67px",
               fontWeight: "700",
               fontStyle: "italic",
               color: "#000000",
@@ -49,9 +49,9 @@ export default function TechnicalPage5Pdf() {
         {introSection?.text && (
           <p
             style={{
-              fontSize: "13px",
+              fontSize: "14.67px",
               color: "#000000",
-              lineHeight: "1.55",
+              lineHeight: "1.45",
               textAlign: "justify",
               margin: "0 0 18px 0",
             }}
@@ -64,7 +64,7 @@ export default function TechnicalPage5Pdf() {
         {introSection?.note && (
           <p
             style={{
-              fontSize: "9px",
+              fontSize: "12.67px",
               color: "#000000",
               fontStyle: "italic",
               margin: "0 0 18px 0",
@@ -78,7 +78,7 @@ export default function TechnicalPage5Pdf() {
         {subsystemSection?.title && (
           <h3
             style={{
-              fontSize: "13px",
+              fontSize: "14.67px",
               fontWeight: "700",
               color: "#000000",
               margin: "0 0 12px 0",
@@ -92,9 +92,9 @@ export default function TechnicalPage5Pdf() {
         {subsystemSection?.description && (
           <p
             style={{
-              fontSize: "13px",
+              fontSize: "14.67px",
               color: "#000000",
-              lineHeight: "1.55",
+              lineHeight: "1.45",
               textAlign: "justify",
               margin: "0 0 20px 0",
             }}

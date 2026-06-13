@@ -9,9 +9,13 @@ export default function PrintLayout({ children }) {
           box-sizing: border-box;
         }
 
-        body {
+        html, body {
           margin: 0;
           padding: 0;
+          width: 100%;
+        }
+
+        body {
           background-color: #f1f5f9;
           font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
@@ -50,27 +54,30 @@ export default function PrintLayout({ children }) {
         .print-layout-container {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          gap: 40px;
-          padding: 40px 0;
-          background-color: #f1f5f9;
+          align-items: center;      /* horizontally centers each .pdf-page */
+          gap: 32px;
+          padding: 32px 0;
+          background-color: #374151; /* dark grey — matches Image 2 */
+          min-height: 100vh;
+          width: 100%;
         }
 
         /* ── Core PDF Page ────────────────────────────────────────── */
         .pdf-page {
           position: relative;
 
-          width: 210mm;
-          height: 297mm;
+          /* Hard-lock to A4 — nothing can widen this */
+          width: 210mm !important;
+          height: 297mm !important;
 
-          min-width: 210mm;
-          min-height: 297mm;
+          min-width: 210mm !important;
+          min-height: 297mm !important;
 
-          max-width: 210mm;
-          max-height: 297mm;
+          max-width: 210mm !important;
+          max-height: 297mm !important;
 
-          box-sizing: border-box;
-          background-color: #ffffff;
+          box-sizing: border-box !important;
+          background-color: #ffffff !important;
 
           overflow: hidden;
 
@@ -80,26 +87,25 @@ export default function PrintLayout({ children }) {
           break-inside: avoid;
 
           /*
-           * Updated measurements:
-           *
-           * Header:
-           *   PdfHeader height = 28mm
-           *   Content starts directly below it.
-           *
-           * Footer:
-           *   Footer positioned near page bottom.
-           *   Reserve enough room so body never overlaps footer.
+           * Padding values derived from PyMuPDF measurements:
+           *   Header height  = 28mm  → pad-top  33mm (28mm header + 5mm gap)
+           *   Footer height  = ~10mm → pad-bot  16mm
+           *   Left / Right   = 10mm
            */
-
           padding-top: 33mm;
           padding-bottom: 16mm;
+          padding-left: 10mm;
+          padding-right: 10mm;
 
-          padding-left: 17.7mm;
-          padding-right: 17.7mm;
-
+          /* Screen-only shadow to look like a page */
           box-shadow:
-            0 4px 6px -1px rgb(0 0 0 / 0.1),
-            0 2px 4px -2px rgb(0 0 0 / 0.1);
+            0 4px 6px -1px rgb(0 0 0 / 0.3),
+            0 2px 4px -2px rgb(0 0 0 / 0.2);
+        }
+
+        /* ── Prevent any child from breaking the fixed width ──────── */
+        .pdf-page > * {
+          max-width: 100%;
         }
       `}</style>
 

@@ -71,15 +71,15 @@ export default function CommercialPage21Pdf() {
           height: "220mm",
           display: "flex",
           flexDirection: "column",
-          marginTop: "18mm",
+          marginTop: "5mm",
         }}
       >
         {/* CENTERED TITLE */}
         <div style={{ textAlign: "center", marginBottom: "4mm" }}>
           <div
             style={{
-              fontSize: "18px",
-              fontWeight: 900,
+              fontSize: "18.67px",
+              fontWeight: 700,
               color: "#09385f",
               textTransform: "uppercase",
               letterSpacing: "0.5px",
@@ -90,17 +90,17 @@ export default function CommercialPage21Pdf() {
         </div>
 
         {/* EFFECTIVE DATE + COMPANY */}
-        <div style={{ fontSize: "13.5px", marginBottom: "1.5mm" }}>
+        <div style={{ fontSize: "14.67px", marginBottom: "1.5mm" }}>
           <span style={{ fontWeight: 700 }}>Effective date:&nbsp;</span>
           {pageData.effectiveDate}
         </div>
-        <div style={{ fontSize: "13.5px", marginBottom: "3mm" }}>
+        <div style={{ fontSize: "14.67px", marginBottom: "3mm" }}>
           <span style={{ fontWeight: 700 }}>Company:&nbsp;</span>
           {pageData.company}
         </div>
 
         {/* INTRO PARAGRAPH */}
-        <div style={{ fontSize: "13.5px", color: "#000000", lineHeight: "1.45", marginBottom: "4mm" }}>
+        <div style={{ fontSize: "14.67px", color: "#000000", lineHeight: "1.45", marginBottom: "4mm" }}>
           {pageData.intro}
         </div>
 

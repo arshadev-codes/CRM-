@@ -32,7 +32,7 @@ export default function TechnicalPage11Pdf() {
         {/* TITLE */}
         <h3
           style={{
-            fontSize: "13.5px",
+            fontSize: "14.67px",
             fontWeight: "700",
             color: "#000000",
             margin: "0 0 4mm 0",
@@ -44,8 +44,8 @@ export default function TechnicalPage11Pdf() {
         {/* DESCRIPTION */}
         <p
           style={{
-            fontSize: "13px",
-            lineHeight: "1.55",
+            fontSize: "14.67px",
+            lineHeight: "1.45",
             textAlign: "justify",
             color: "#000000",
             margin: "0 0 5mm 0",
@@ -81,7 +81,7 @@ export default function TechnicalPage11Pdf() {
         {/* CUSTOMIZATION HEADING */}
         <div
   style={{
-    fontSize: "13.5px",
+    fontSize: "14.67px",
     fontWeight: "700",
     fontStyle: "italic",
     marginBottom: "4mm",
@@ -93,7 +93,7 @@ export default function TechnicalPage11Pdf() {
         {/* SUB HEADING */}
         <div
           style={{
-            fontSize: "13px",
+            fontSize: "14.67px",
             fontWeight: "700",
             fontStyle: "italic",
             marginLeft: "8mm",
@@ -109,8 +109,8 @@ export default function TechnicalPage11Pdf() {
   <div
     style={{
       marginLeft: "12mm",
-      fontSize: "13px",
-      lineHeight: "1.55",
+      fontSize: "14.67px",
+      lineHeight: "1.45",
       textAlign: "justify",
       color: "#000000",
     }}

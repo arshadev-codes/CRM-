@@ -32,14 +32,14 @@ export default function CommercialPage19Pdf() {
           height: "220mm",
           display: "flex",
           flexDirection: "column",
-          marginTop: "18mm",
+          marginTop: "5mm",
         }}
       >
         {/* ── LIST OF EXCLUSIONS ── */}
         <div
           style={{
-            fontSize: "18px",
-            fontWeight: 900,
+            fontSize: "18.67px",
+            fontWeight: 700,
             color: "#09385f",
             textTransform: "uppercase",
             letterSpacing: "0.3px",
@@ -57,9 +57,9 @@ export default function CommercialPage19Pdf() {
           style={{
             margin: "0 0 0 5mm",
             padding: 0,
-            fontSize: "13px",
+            fontSize: "14.67px",
             color: "#000000",
-            lineHeight: "1.6",
+            lineHeight: "1.45",
             listStyleType: "decimal",
             paddingLeft: "5mm",
           }}
@@ -75,8 +75,8 @@ export default function CommercialPage19Pdf() {
         <div style={{ marginTop: "7mm" }}>
           <div
             style={{
-              fontSize: "18px",
-              fontWeight: 900,
+              fontSize: "18.67px",
+              fontWeight: 700,
               color: "#09385f",
               textTransform: "uppercase",
               letterSpacing: "0.3px",
@@ -86,7 +86,7 @@ export default function CommercialPage19Pdf() {
             {pageData.makesTitle || "LIST OF MAKES OF SUPPLY"}
           </div>
 
-          <div style={{ fontSize: "13.5px", color: "#000000", marginBottom: "3mm" }}>
+          <div style={{ fontSize: "14.67px", color: "#000000", marginBottom: "3mm" }}>
             {pageData.makesIntro}
           </div>
 
@@ -94,8 +94,9 @@ export default function CommercialPage19Pdf() {
             style={{
               width: "82%",
               borderCollapse: "collapse",
-              fontSize: "13px",
+              fontSize: "14.67px",
               tableLayout: "fixed",
+              margin: "0 auto",
             }}
           >
             <colgroup>
@@ -117,7 +118,7 @@ export default function CommercialPage19Pdf() {
                 <th
                   style={{
                     border: "1px solid #b6b6b6",
-                    padding: "1.5mm 2mm",
+                    padding: "0.5mm 1mm",
                     fontWeight: 700,
                     textAlign: "center",
                   }}
@@ -132,7 +133,8 @@ export default function CommercialPage19Pdf() {
                   <td
                     style={{
                       border: "1px solid #b6b6b6",
-                      padding: "1mm 2mm",
+                      padding: "0.5mm 1mm",
+                      fontSize: "14.67px",
                       color: "#000000",
                       whiteSpace: "normal",
                       wordBreak: "break-word",
@@ -143,7 +145,8 @@ export default function CommercialPage19Pdf() {
                   <td
                     style={{
                       border: "1px solid #b6b6b6",
-                      padding: "1mm 2mm",
+                      padding: "0.5mm 1mm",
+                      fontSize: "14.67px",
                       color: "#000000",
                       textAlign: "center",
                     }}

@@ -31,7 +31,7 @@ export default function CommercialPage15Pdf() {
             width: "100%",
             borderCollapse: "collapse",
             tableLayout: "fixed",
-            fontSize: "13px",
+            fontSize: "12.5px",
           }}
         >
           <colgroup>
@@ -50,7 +50,7 @@ export default function CommercialPage15Pdf() {
                     textAlign: "center",
                     verticalAlign: "middle",
                     fontWeight: 700,
-                    fontSize: "13px",
+                    fontSize: "12.5px",
                     padding: "1mm",
                   }}
                 >
@@ -77,7 +77,7 @@ export default function CommercialPage15Pdf() {
 
                   <div
                     style={{
-                      fontSize: "12px",
+                      fontSize: "12.5px",
                       lineHeight: "1.25",
                     }}
                   >
@@ -90,7 +90,7 @@ export default function CommercialPage15Pdf() {
                     border: "1px solid #b6b6b6",
                     textAlign: "center",
                     verticalAlign: "middle",
-                    fontSize: "13px",
+                    fontSize: "12.5px",
                   }}
                 >
                   {item.quantity}
@@ -101,7 +101,7 @@ export default function CommercialPage15Pdf() {
                     border: "1px solid #b6b6b6",
                     textAlign: "center",
                     verticalAlign: "middle",
-                    fontSize: "13px",
+                    fontSize: "12.5px",
                   }}
                 >
                   {item.price}
